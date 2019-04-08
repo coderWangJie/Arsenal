@@ -1,1 +1,1 @@
-include ':app'
+include ':app', ':foundation_ui', ':foundation_fun', ':work_launcher'

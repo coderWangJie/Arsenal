@@ -1,14 +1,20 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 28
+
+
+
     defaultConfig {
-        applicationId "com.wangj.arsenal"
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -16,19 +22,9 @@ android {
         }
     }
 
-    sourceSets {
-        if (isModuleDevelopping.toBoolean()) {
-            println("WangJ-------1")
-        } else {
-            println("WangJ-------2")
-        }
-    }
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation project(':foundation_fun')
-    implementation project(':foundation_ui')
-    implementation project(':work_launcher')
 }
