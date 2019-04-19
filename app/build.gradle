@@ -10,17 +10,22 @@ android {
         versionName "1.0"
     }
     buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            // 该语句将在"build\generated\source\buildConfig\debug\包名\BuildConfig.java"中添加指定名称的常量
+            buildConfigField("boolean", "showLog", "${showLog}")
+            buildConfigField("int", "showLogLevel", "${showLogLevel}")
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
 
-    sourceSets {
-        if (isModuleDevelopping.toBoolean()) {
-            println("WangJ-------1")
-        } else {
-            println("WangJ-------2")
+            // 该语句将在"build\generated\source\buildConfig\debug\包名\BuildConfig.java"中添加指定名称的常量
+            buildConfigField("boolean", "showLog", "${showLog}")
+            buildConfigField("int", "showLogLevel", "${showLogLevel}")
         }
     }
 }
