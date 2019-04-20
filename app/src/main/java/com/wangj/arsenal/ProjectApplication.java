@@ -1,18 +1,18 @@
 package com.wangj.arsenal;
 
-import android.app.Application;
 import android.content.res.Configuration;
 import android.util.Log;
 
-import com.wangj.fun.util.LogUtil;
+import com.wangj.core.android.BaseApplication;
+import com.wangj.core.util.LogUtil;
 
-public class ProjectApplication extends Application {
+public class ProjectApplication extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
 
         // 设置LogUtil工具打印日志级别
-        LogUtil.setLogLevel(Log.DEBUG);
+        LogUtil.setLogLevel(BuildConfig.showLogLevel);
     }
 
     @Override

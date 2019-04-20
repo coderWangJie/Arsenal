@@ -1,10 +1,10 @@
-package com.wangj.ui.base;
+package com.wangj.core.android;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import com.wangj.ui.R;
+import com.wangj.core.R;
 
 /**
  * Activity基类
@@ -34,6 +34,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             setContentView(R.layout.default_content_not_set);
         }
 
+        // "TAG" will been assigned as SubClass's name.
         TAG = getClass().getSimpleName();
 
         initViews();

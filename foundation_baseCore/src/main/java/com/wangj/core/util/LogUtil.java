@@ -1,4 +1,4 @@
-package com.wangj.fun.util;
+package com.wangj.core.util;
 
 import android.support.annotation.NonNull;
 import android.util.Log;

@@ -1,4 +1,4 @@
-package com.wangj.ui;
+package com.wangj.core;
 
 public class ARoutMapping {
 
