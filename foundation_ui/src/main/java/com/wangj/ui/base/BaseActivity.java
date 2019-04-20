@@ -8,12 +8,18 @@ import com.wangj.ui.R;
 
 /**
  * Activity基类
+ *
  * @author WangJ  2019/4/19
  */
 public abstract class BaseActivity extends AppCompatActivity {
 
     protected static String TAG;
 
+    /**
+     * return the Layout-Resource-ID which will been showed in activity.
+     *
+     * @return layout-ID
+     */
     protected abstract int getContentLayoutRes();
 
     protected abstract void initViews();

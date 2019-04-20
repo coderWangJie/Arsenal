@@ -15,6 +15,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         tv = findViewById(R.id.textView);
-        tv.setText(BuildConfig.DEBUG ? "debug" : "releas");
+        tv.setText(BuildConfig.DEBUG ? "debug" : "release");
     }
 }
