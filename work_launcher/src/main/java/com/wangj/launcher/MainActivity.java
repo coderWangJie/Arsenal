@@ -1,19 +1,33 @@
 package com.wangj.launcher;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+import com.wangj.core.android.BaseActivity;
+
+public class MainActivity extends BaseActivity {
 
     private TextView tv;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    protected int getContentLayoutRes() {
+        return R.layout.launcher_activity_main;
+    }
 
+    @Override
+    protected void registerPresenter() {
+
+    }
+
+    @Override
+    protected void initViews() {
         tv = findViewById(R.id.textView);
         tv.setText(BuildConfig.DEBUG ? "debug" : "release");
+
+        tv.setText(tv.getText().toString().concat("\n打包时间：").concat(BuildConfig.ReleaseTime));
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 }

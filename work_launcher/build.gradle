@@ -17,6 +17,8 @@ android {
 
             // 该语句将在"build\generated\source\buildConfig\debug\包名\BuildConfig.java"中添加指定名称的常量
             buildConfigField("String", "Name", "\"${MyName}\"")
+            buildConfigField("String", "ReleaseTime", "\"${releaseTime()}\"")
+
         }
 
         release {
@@ -25,6 +27,7 @@ android {
 
             // 该语句将在"build\generated\source\buildConfig\debug\包名\BuildConfig.java"中添加指定名称的常量
             buildConfigField("String", "Name", "\"${MyName}\"")
+            buildConfigField("String", "ReleaseTime", "\"${releaseTime()}\"")
         }
     }
 
@@ -40,6 +43,10 @@ android {
         }
     }
 
+}
+
+static def releaseTime() {
+    return new Date().format("yyyy-MM-dd HH:mm:ss")
 }
 
 dependencies {

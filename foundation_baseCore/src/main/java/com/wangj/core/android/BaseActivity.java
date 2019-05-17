@@ -22,6 +22,8 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     protected abstract int getContentLayoutRes();
 
+    protected abstract void registerPresenter();
+
     protected abstract void initViews();
 
     @Override
@@ -36,6 +38,8 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         // "TAG" will been assigned as SubClass's name.
         TAG = getClass().getSimpleName();
+
+        registerPresenter();
 
         initViews();
     }
