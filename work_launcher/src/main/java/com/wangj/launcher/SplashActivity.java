@@ -7,11 +7,14 @@ import com.wangj.launcher.presenter.ISplashPresenter;
 import com.wangj.launcher.presenter.ISplashPresenterImpl;
 import com.wangj.launcher.view.ISplashView;
 
+import butterknife.BindView;
+
 public class SplashActivity extends BaseActivity implements ISplashView {
 
     private ISplashPresenter splashPresenter;
 
-    private TextView tv;
+    @BindView(R2.id.textView)
+    TextView tv;
 
     @Override
     protected int getContentLayoutRes() {
@@ -24,11 +27,6 @@ public class SplashActivity extends BaseActivity implements ISplashView {
     }
 
     @Override
-    protected void initViews() {
-        tv = findViewById(R.id.textView);
-    }
-
-    @Override
     protected void onResume() {
         super.onResume();
         splashPresenter.checkInfo();
@@ -36,7 +34,7 @@ public class SplashActivity extends BaseActivity implements ISplashView {
 
     @Override
     public void startSplashView() {
-//        tv.setText(BuildConfig.DEBUG ? "debug" : "release");
+        tv.setText(BuildConfig.DEBUG ? "debug" : "release");
 //        tv.setText(tv.getText().toString().concat("\n打包时间：").concat(BuildConfig.ReleaseTime));
     }
 

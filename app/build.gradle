@@ -28,6 +28,12 @@ android {
             buildConfigField("int", "showLogLevel", "${showLogLevel}")
         }
     }
+
+    // 此参数是添加ButterKnife时添加
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
 }
 
 dependencies {

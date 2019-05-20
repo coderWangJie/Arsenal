@@ -6,6 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.wangj.core.R;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 /**
  * Activity基类
  *
@@ -14,6 +17,7 @@ import com.wangj.core.R;
 public abstract class BaseActivity extends AppCompatActivity {
 
     protected static String TAG;
+    protected Unbinder unbinder;
 
     /**
      * return the Layout-Resource-ID which will been showed in activity.
@@ -23,8 +27,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected abstract int getContentLayoutRes();
 
     protected abstract void registerPresenter();
-
-    protected abstract void initViews();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,11 +38,20 @@ public abstract class BaseActivity extends AppCompatActivity {
             setContentView(R.layout.default_content_not_set);
         }
 
+        // ButterKnife注册
+        unbinder = ButterKnife.bind(this);
+
         // "TAG" will been assigned as SubClass's name.
         TAG = getClass().getSimpleName();
 
         registerPresenter();
+    }
 
-        initViews();
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        // ButterKnife注销
+        unbinder.unbind();
     }
 }
