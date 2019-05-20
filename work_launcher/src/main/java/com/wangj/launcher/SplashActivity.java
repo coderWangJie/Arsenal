@@ -1,5 +1,6 @@
 package com.wangj.launcher;
 
+import android.content.Intent;
 import android.widget.TextView;
 
 import com.wangj.core.android.BaseActivity;
@@ -13,8 +14,10 @@ public class SplashActivity extends BaseActivity implements ISplashView {
 
     private ISplashPresenter splashPresenter;
 
-    @BindView(R2.id.textView)
-    TextView tv;
+    @BindView(R2.id.tvSkip)
+    TextView tvSkip;
+    @BindView(R2.id.tvBuildTime)
+    TextView tvBuildTime;
 
     @Override
     protected int getContentLayoutRes() {
@@ -34,17 +37,24 @@ public class SplashActivity extends BaseActivity implements ISplashView {
 
     @Override
     public void startSplashView() {
-        tv.setText(BuildConfig.DEBUG ? "debug" : "release");
-//        tv.setText(tv.getText().toString().concat("\n打包时间：").concat(BuildConfig.ReleaseTime));
+        tvSkip.setText(BuildConfig.DEBUG ? "debug" : "release");
+
+        tvBuildTime.setText("打包时间\n".concat(BuildConfig.ReleaseTime));
     }
 
     @Override
-    public void refreshWaitting() {
-
+    public void refreshWaitting(int second) {
+        tvSkip.setText(second + "点击跳过");
     }
 
     @Override
     public void initFinsh() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
 
+    @Override
+    public void onBackPressed() {
     }
 }

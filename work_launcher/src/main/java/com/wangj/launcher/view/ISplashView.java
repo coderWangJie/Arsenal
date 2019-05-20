@@ -4,7 +4,7 @@ public interface ISplashView {
 
     void startSplashView();
 
-    void refreshWaitting();
+    void refreshWaitting(int second);
 
     void initFinsh();
 }
