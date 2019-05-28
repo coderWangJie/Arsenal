@@ -43,8 +43,8 @@ public class SplashActivity extends BaseActivity implements ISplashView {
     }
 
     @Override
-    public void refreshWaitting(int second) {
-        tvSkip.setText(second + "点击跳过");
+    public void refreshWaiting(int second) {
+        tvSkip.setText(String.valueOf(second).concat("点击跳过"));
     }
 
     @Override
@@ -56,5 +56,6 @@ public class SplashActivity extends BaseActivity implements ISplashView {
 
     @Override
     public void onBackPressed() {
+        // Splash页不允许手动退出
     }
 }

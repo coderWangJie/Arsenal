@@ -30,7 +30,7 @@ public class ISplashPresenterImpl implements ISplashPresenter {
 
             if (msg.what == 0) {
                 if (delaySecond > 0) {
-                    splashView.refreshWaitting(--delaySecond);
+                    splashView.refreshWaiting(--delaySecond);
                     sendEmptyMessageDelayed(0, 1000);
                 } else {
                     splashView.initFinsh();

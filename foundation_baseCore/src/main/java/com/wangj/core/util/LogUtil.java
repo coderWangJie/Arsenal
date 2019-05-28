@@ -11,7 +11,7 @@ import java.util.Set;
 /**
  * LogUtil, which is used to show logs helping you to know your APP more.
  *
- * @author Wang email:jie581825@yeah.net
+ * @author WangJ email:jie581825@yeah.net
  * @version 1.0
  * <p>
  * if you modify some, PLEASE RECORD YOUR MODIFY !!!

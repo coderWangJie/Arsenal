@@ -12,7 +12,7 @@ import java.util.Set;
  * SharedPreference工具类<br>
  * 建议将键名定义在{@link SharedPreferenceKey}中，避免在代码中直接随处起名导致混乱难以管理
  *
- * @author Wang email:jie581825@yeah.net
+ * @author WangJ email:jie581825@yeah.net
  * @version 1.0
  * <p>
  * if you modify some, PLEASE RECORD YOUR MODIFY !!!
