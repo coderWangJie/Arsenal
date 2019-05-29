@@ -21,9 +21,14 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'com.alibaba:fastjson:1.2.57'
+    api 'com.android.support:appcompat-v7:28.0.0'
 
-    api 'com.jakewharton:butterknife:9.0.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0'
+    // Alibaba JSON工具
+    api Alibaba_FastJson
+
+    // ButterKnife依赖
+    api JakeWharton_ButterKnife
+
+    // ARouter依赖
+    api Alibaba_ARouterApi
 }

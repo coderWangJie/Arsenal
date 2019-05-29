@@ -9,6 +9,13 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
+
+        // 使用ARouter时添加
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
     }
 
     buildTypes {
@@ -17,7 +24,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
             // 该语句将在"build\generated\source\buildConfig\debug\包名\BuildConfig.java"中添加指定名称的常量
-            buildConfigField("String", "Name", "\"${MyName}\"")
             buildConfigField("String", "ReleaseTime", "\"${releaseTime()}\"")
 
         }
@@ -27,7 +33,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
             // 该语句将在"build\generated\source\buildConfig\debug\包名\BuildConfig.java"中添加指定名称的常量
-            buildConfigField("String", "Name", "\"${MyName}\"")
             buildConfigField("String", "ReleaseTime", "\"${releaseTime()}\"")
         }
     }
@@ -52,10 +57,12 @@ static def releaseTime() {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation project(':foundation_baseCore')
     implementation project(':foundation_ui')
 
-    implementation 'com.jakewharton:butterknife:9.0.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0'
+    // ButterKnife编译
+    annotationProcessor JakeWharton_ButterKnifeCompiler
+
+    // ARouter编译
+    annotationProcessor Alibaba_ARouterCompiler
 }
