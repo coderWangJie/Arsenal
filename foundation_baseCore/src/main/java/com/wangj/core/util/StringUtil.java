@@ -12,5 +12,22 @@ public class StringUtil {
         return !TextUtils.isEmpty(charSequence);
     }
 
+    /**
+     * TODO 判断是否全是小写
+     *
+     * @param charSequence
+     * @return
+     */
+    public static boolean isAllLowerCase(CharSequence charSequence) {
+        return false;
+    }
 
+    /**
+     * TODO 判断是否全是大写
+     * @param charSequence
+     * @return
+     */
+    public static boolean isAllUpperCase(CharSequence charSequence) {
+        return false;
+    }
 }

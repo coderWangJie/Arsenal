@@ -24,4 +24,19 @@ public class SharedPreferenceKey {
 
     /**  */
     public static final String User_Name_S = "";
+
+    /**  */
+    public static final String User_Name_SSet = "";
+
+    /**  */
+    public static final String User_Name_I = "";
+
+    /**  */
+    public static final String User_Name_B = "";
+
+    /**  */
+    public static final String User_Name_L = "";
+
+    /**  */
+    public static final String User_Name_F = "";
 }

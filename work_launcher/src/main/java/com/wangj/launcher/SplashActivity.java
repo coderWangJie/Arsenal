@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.widget.TextView;
 
 import com.wangj.core.android.BaseActivity;
+import com.wangj.core.util.LogUtil;
 import com.wangj.launcher.presenter.ISplashPresenter;
 import com.wangj.launcher.presenter.ISplashPresenterImpl;
 import com.wangj.launcher.view.ISplashView;
