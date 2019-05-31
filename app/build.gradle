@@ -44,4 +44,5 @@ dependencies {
     implementation project(':test_demo')
     implementation project(':work_launcher')
     implementation project(':work_login')
+    implementation project(':work_h5')
 }

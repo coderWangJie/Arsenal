@@ -31,7 +31,6 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':foundation_baseCore')
     implementation project(':foundation_ui')
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 
     // ButterKnife编译
     annotationProcessor JakeWharton_ButterKnifeCompiler

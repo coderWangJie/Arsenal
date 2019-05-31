@@ -11,6 +11,6 @@ public class ARoutMapping {
     }
 
     public static class LoginMapping {
-        public static String Login = "/login/login";
+        public final static String Login = "/login/login";
     }
 }
