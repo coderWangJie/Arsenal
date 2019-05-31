@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- 自定义DashedView -->
+    <attr name="direction" format="enum">
+        <enum name="horizontal" value="0" />
+        <enum name="vertical" value="1" />
+        <enum name="leftTop_rightBottom" value="2" />
+        <enum name="rightTop_leftBottom" value="3" />
+    </attr>
+    <declare-styleable name="DashedView">
+        <attr name="size" format="dimension" />
+        <attr name="dashed" format="dimension" />
+        <attr name="dashedGap" format="dimension" />
+        <attr name="dashedColor" format="color" />
+        <attr name="direction" />
+    </declare-styleable>
+
+    <!-- 自定义标题栏 -->
     <declare-styleable name="UniformTitleBar">
         <attr name="x" format="string|reference"/>
     </declare-styleable>

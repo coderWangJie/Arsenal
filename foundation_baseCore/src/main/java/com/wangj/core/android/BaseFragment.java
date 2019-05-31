@@ -10,18 +10,26 @@ import android.view.ViewGroup;
 
 import com.wangj.core.R;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 public abstract class BaseFragment extends Fragment {
+
+    private Unbinder unbinder;
 
     protected abstract int getContentLayoutRes();
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view;
         if (getContentLayoutRes() != 0) {
-            return inflater.inflate(getContentLayoutRes(), container);
+            view = inflater.inflate(getContentLayoutRes(), container);
+        } else {
+            view = inflater.inflate(R.layout.default_content_not_set, container);
         }
-
-        return inflater.inflate(R.layout.default_content_not_set, container);
+        unbinder = ButterKnife.bind(this, view);
+        return view;
     }
 
     @Override
@@ -32,5 +40,11 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        unbinder.unbind();
     }
 }
