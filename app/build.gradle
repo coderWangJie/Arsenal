@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 28
+
     defaultConfig {
         applicationId "com.wangj.arsenal"
         minSdkVersion 19
@@ -9,6 +10,7 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
     buildTypes {
         debug {
             minifyEnabled false
@@ -38,8 +40,9 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation project(':foundation_baseCore')
-    implementation project(':foundation_ui')
+    implementation project(':test_demo')
     implementation project(':work_launcher')
+    implementation project(':work_login')
+    implementation project(':work_h5')
 }

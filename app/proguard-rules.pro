@@ -19,3 +19,26 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# alibaba ARouter防混淆
+-keep public class com.alibaba.android.arouter.routes.**{*;}
+-keep public class com.alibaba.android.arouter.facade.**{*;}
+-keep class * implements com.alibaba.android.arouter.facade.template.ISyringe{*;}
+# If you use the byType method to obtain Service, add the following rules to protect the interface:
+# 如果使用了 byType 的方式获取 Service，需添加下面规则，保护接口（此为上一行英文翻译）
+-keep interface * implements com.alibaba.android.arouter.facade.template.IProvider
+# If single-type injection is used, that is, no interface is defined to implement IProvider, the following rules need to be added to protect the implementation
+# 如果使用了 单类注入，即不定义接口实现 IProvider，需添加下面规则，保护实现（此为上一行英文翻译）
+# -keep class * implements com.alibaba.android.arouter.facade.template.IProvider
+
+
+# butterknife防混淆
+-keep class butterknife.** { *; }
+-dontwarn butterknife.internal.**
+-keep class **$$ViewBinder { *; }
+-keepclasseswithmembernames class * {
+    @butterknife.* <fields>;
+}
+-keepclasseswithmembernames class * {
+    @butterknife.* <methods>;
+}

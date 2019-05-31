@@ -1,2 +1,2 @@
-include ':app', ':foundation_ui', ':foundation_baseCore', ':test_demo', ':work_launcher', ':work_login'
+include ':app', ':foundation_ui', ':foundation_baseCore', ':test_demo', ':work_launcher', ':work_login', ':work_h5'
 // 有没有办法区分是否发布版，在发布版中不包含demo???

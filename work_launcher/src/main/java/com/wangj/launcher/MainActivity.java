@@ -1,15 +1,15 @@
 package com.wangj.launcher;
 
-import android.os.SystemClock;
-import android.widget.ImageView;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.wangj.core.ARoutMapping;
 import com.wangj.core.android.BaseActivity;
 
-import java.sql.Time;
-
 import butterknife.BindView;
+import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity {
 
@@ -17,8 +17,6 @@ public class MainActivity extends BaseActivity {
 
     @BindView(R2.id.textView)
     TextView tv;
-    @BindView(R2.id.imgDemo)
-    ImageView imgDemo;
 
     @Override
     protected int getContentLayoutRes() {
@@ -33,6 +31,14 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
+    }
+
+    @OnClick(R2.id.imgDemo)
+    void onViewClick(View view) {
+        if (view.getId() == R.id.imgDemo) {
+            ARouter.getInstance().build(ARoutMapping.DemoMapping.Index).navigation();
+//            startActivity(new Intent(this, DemoActivity.class));
+        }
     }
 
     @Override

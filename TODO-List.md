@@ -1,0 +1,1 @@
+- ShareElement实现转场动画，这种动画能用于Activity之间的转场，别的页面切换可以用吗？
