@@ -9,7 +9,11 @@
 
 ## 工程中用到哪些技术？
 - ButterKnife编译时注解
+
+    ButterKnife[ButterKnife踩坑记](./Notes/ButterKnife踩坑记.md)。
 - Alibaba-ARouter路由方案
+
+    接入笔记和遇到的问题排查解决记录烦请移步[ARouter踩坑记](./Notes/ARouter踩坑记.md)。
 - MVP模式
 
 ## Modules说明
