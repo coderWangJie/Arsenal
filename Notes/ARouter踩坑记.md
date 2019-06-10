@@ -67,7 +67,7 @@ startActivityForResult(Intent intent, int requtstCode) 进入B模块，然后使
 ## 正常的ARouter方案接入
 先去 [ARouter官网](https://github.com/alibaba/ARouter) 看看最新版本信息：
 
-![版本信息](../Images/ARouter_look_new_version.jpg)
+![版本信息](../Images/ARouter_look_new_version.png)
 
 算了，集成过程不写了，官网就有，直接照着来就是了，只说说需要留意的地方：
 
