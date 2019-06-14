@@ -4,11 +4,11 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.wangj.core.ARoutMapping;
 import com.wangj.core.android.BaseActivity;
 
-@Route(path = ARoutMapping.DemoMapping.Buttons)
-public class ButtonsActivity extends BaseActivity {
+@Route(path = ARoutMapping.DemoMapping.CardView)
+public class CardViewActivity extends BaseActivity {
     @Override
     protected int getContentLayoutRes() {
-        return R.layout.demo_activity_buttons;
+        return R.layout.demo_activity_cardview;
     }
 
     @Override

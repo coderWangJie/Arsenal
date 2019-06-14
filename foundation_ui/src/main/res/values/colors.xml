@@ -7,5 +7,7 @@
 
     <color name="ui_white">#FFFFFF</color>
     <color name="ui_white_a80">#CCFFFFFF</color>
+    <color name="ui_green">#35E735</color>
+    <color name="ui_red">#EF5353</color>
 
 </resources>

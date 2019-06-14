@@ -7,8 +7,10 @@ public class ARoutMapping {
      */
     public static class DemoMapping {
         public final static String Home = "/demo/index";
-        public final static String CoordinatorAppBarLayout = "/demo/CoordinatorAppBarLayout";
         public final static String Buttons = "/demo/Buttons";
+        public final static String CoordinatorAppBarLayout = "/demo/CoordinatorAppBarLayout";
+        public final static String CardView = "/demo/CardView";
+        public final static String Toast = "/demo/Toast";
     }
 
     /**

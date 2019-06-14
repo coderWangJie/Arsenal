@@ -3,10 +3,13 @@
     package="com.wangj.demo">
 
     <application>
-        <activity android:name=".DemoActivity"/>
+        <activity android:name=".DemoActivity" />
         <activity android:name=".CoordinatorAppBarLayoutActivity" />
-        <activity android:name=".ButtonsActivity"
-            android:theme="@style/Theme.MaterialComponents.Light"/>
+        <activity
+            android:name=".ButtonsActivity"
+            android:theme="@style/Theme.MaterialComponents.Light" />
+        <activity android:name=".CardViewActivity" />
+        <activity android:name=".ToastActivity" />
     </application>
 
 </manifest>
