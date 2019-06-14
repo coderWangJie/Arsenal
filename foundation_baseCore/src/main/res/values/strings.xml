@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">foundation_fun</string>
+
+    <string name="core_hint_has_no_layout">骚年，你忘了给页面设置layout资源</string>
 </resources>

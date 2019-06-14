@@ -10,7 +10,7 @@
 ## 工程中用到哪些技术？
 - ButterKnife编译时注解
 
-    ButterKnife[ButterKnife踩坑记](./Notes/ButterKnife踩坑记.md)。
+    ButterKnife参看[ButterKnife踩坑记](./Notes/ButterKnife踩坑记.md)。
 - Alibaba-ARouter路由方案
 
     接入笔记和遇到的问题排查解决记录烦请移步[ARouter踩坑记](./Notes/ARouter踩坑记.md)。
@@ -19,10 +19,16 @@
 ## Modules说明
 - foundation_baseCore
 
-    基础功能、工具类代码库
+    基础功能、工具类代码库；
+
 - foundation_ui
 
-    基础UI代码库
+    基础UI代码库；
+
+- test_demo
+    
+    Demo集合，放置一些DEMO；
+
 - work_launcher
     
-    主页
+    主页；

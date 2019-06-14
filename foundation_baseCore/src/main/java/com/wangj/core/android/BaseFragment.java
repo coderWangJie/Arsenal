@@ -26,7 +26,7 @@ public abstract class BaseFragment extends Fragment {
         if (getContentLayoutRes() != 0) {
             view = inflater.inflate(getContentLayoutRes(), container);
         } else {
-            view = inflater.inflate(R.layout.default_content_not_set, container);
+            view = inflater.inflate(R.layout.core_no_content, container);
         }
         unbinder = ButterKnife.bind(this, view);
         return view;

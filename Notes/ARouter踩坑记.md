@@ -117,7 +117,7 @@ dependencies {
     annotationProcessor 'com.alibaba:arouter-compiler:newVersionCode'
 }
 ```
-(3) **app要添加对各业务 Module的依赖**
+（3）**app要添加对各业务 Module的依赖**
 
 不管是直接依赖还是间接依赖，各业务的 Module一定要被app依赖，否则那个没被依赖的业务 Module 会在打包时被当成没用的资源扔掉。在了解 ARouter的内部原理之前，可以这么理解（反正我就是这么理解的）：
 
@@ -126,6 +126,48 @@ dependencies {
 3. 从最底层 Module开始编译各个Module，编译过程中 ARouter扫描有 @Route(path = /xx/xx)注解的组件，生成**路由表**备用；
 4. 在使用路由时，根据指定的 path 到路由表中查找对应组件。 
 
-如果你的某个业务 Module没有被 app依赖（不管直接还是间接依赖），那么久不会在依赖关系的金字塔中，必然不会生成到路由表中，肯定就会“xxxxxxxxxxx”.
+如果你的某个业务 Module没有被 app依赖（不管直接还是间接依赖），那么久不会在依赖关系的金字塔中，必然不会生成到路由表中，在匹配的时候就会报“**There's no route matched!**”。
 
 ## 遇到的问题
+（1）编译报错：
+```
+> Task :test_demo:compileDebugJavaWithJavac FAILED
+
+Gradle may disable incremental compilation as the following annotation processors are not incremental: butterknife-compiler-9.0.0.jar (com.jakewharton:butterknife-compiler:9.0.0), arouter-compiler-1.2.2.jar (com.alibaba:arouter-compiler:1.2.2), auto-service-1.0-rc2.jar (com.google.auto.service:auto-service:1.0-rc2).
+
+Consider setting the experimental feature flag android.enableSeparateAnnotationProcessing=true in the gradle.properties file to run annotation processing in a separate task and make compilation incremental.
+
+注: ARouter::Compiler >>> AutowiredProcessor init. <<<
+错误: ARouter::Compiler An exception is encountered, [These no module name, at 'build.gradle', like :
+  android {
+      defaultConfig {
+          ...
+          javaCompileOptions {
+              annotationProcessorOptions {
+                  arguments = [AROUTER_MODULE_NAME: project.getName()]
+              }
+          }
+      }
+  }
+```
+这个最简单，参考**接入流程中的注意项（1）**，报错也很明显，缺少 javaCompileOptions-annotationProcessorOptions 配置，看看哪个 build.gradle 添加了
+> annotationProcessor 'com.alibaba:arouter-compiler:newVersionCode' 
+
+却缺少 javaCompileOptions-annotationProcessorOptions 配置，找到位置加上即可。
+
+（2）运行时Toast提示：
+```
+There's no route matched!
+Path=[/xxx/xxxx]
+Group=[xxx]
+```
+参考接入注意事项，排查顺序（1）（2）（3）。
+
+（3）Sync时发生警告：
+```
+WARNING: API 'variantOutput.getProcessResources()' is obsolete and has been replaced with 'variantOutput.getProcessResourcesProvider()'.
+It will be removed at the end of 2019.
+For more information, see https://d.android.com/r/tools/task-configuration-avoidance.
+To determine what is calling variantOutput.getProcessResources(), use -Pandroid.debug.obsoleteApi=true on the command line to display a stack trace.
+```
+这个应该是 gradle 版本升级后 api 有变化，ARouter中还使用了老版本的写法所致。具体还没搞懂，问题先留着。

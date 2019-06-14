@@ -28,6 +28,8 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected abstract void registerPresenter();
 
+    protected abstract void doBeforeResume();
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +37,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (getContentLayoutRes() != 0) {
             setContentView(getContentLayoutRes());
         } else {
-            setContentView(R.layout.default_content_not_set);
+            setContentView(R.layout.core_no_content);
         }
 
         // ButterKnife注册
@@ -45,6 +47,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         TAG = getClass().getSimpleName();
 
         registerPresenter();
+
+        doBeforeResume();
     }
 
     @Override

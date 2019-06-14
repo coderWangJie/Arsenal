@@ -3,6 +3,7 @@
     <color name="colorPrimary">#A2D566</color>
     <color name="colorPrimaryDark">#48C74D</color>
     <color name="colorAccent">#108DC6</color>
+    <color name="theme_default_background">#F6F6F6</color>
 
     <color name="ui_white">#FFFFFF</color>
     <color name="ui_white_a80">#CCFFFFFF</color>

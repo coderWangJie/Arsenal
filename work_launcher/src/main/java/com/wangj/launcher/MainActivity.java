@@ -4,13 +4,16 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.wangj.core.ARoutMapping;
 import com.wangj.core.android.BaseActivity;
+import com.wangj.core.constant.IntentConstant;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 
+@Route(path = ARoutMapping.LauncherMapping.Home)
 public class MainActivity extends BaseActivity {
 
     private long lastBankPressedTime = 0;
@@ -29,6 +32,11 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
+    protected void doBeforeResume() {
+
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
     }
@@ -36,8 +44,12 @@ public class MainActivity extends BaseActivity {
     @OnClick(R2.id.imgDemo)
     void onViewClick(View view) {
         if (view.getId() == R.id.imgDemo) {
-            ARouter.getInstance().build(ARoutMapping.DemoMapping.Index).navigation();
-//            startActivity(new Intent(this, DemoActivity.class));
+            ARouter.getInstance().build(ARoutMapping.DemoMapping.Home).navigation();
+
+//            ARouter.getInstance().build(ARoutMapping.WebMapping.WebView)
+//                    .withString(IntentConstant.WEB_URL, "")
+//                    .withString(IntentConstant.WEB_TITLE, "")
+//                    .navigation();
         }
     }
 

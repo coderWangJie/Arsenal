@@ -31,6 +31,11 @@ public class SplashActivity extends BaseActivity implements ISplashView {
     }
 
     @Override
+    protected void doBeforeResume() {
+
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
         splashPresenter.checkInfo();
