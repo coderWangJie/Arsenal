@@ -9,21 +9,62 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class CustToastDialogUtil {
-    public static void toastSuccess(Context context, int type, String msg) {
-        View view = LayoutInflater.from(context).inflate(R.layout.ui_cust_toast_view, null);
+
+    public interface OnToastDismissListener {
+        /** 由于{@link CustToastDialogUtil}使用Toast实现，所以禁止在onShow()中使用Toast */
+        void onShow();
+
+        void onDismiss();
+    }
+
+    private static int TYPE_SUCCESS = 0;
+    private static int TYPE_FAIL = 1;
+
+    public static void toastSuccess(Context context, String msg) {
+        toast(context, TYPE_SUCCESS, msg, null);
+    }
+
+    public static void toastSuccess(Context context, String msg, OnToastDismissListener listener) {
+        toast(context, TYPE_SUCCESS, msg, listener);
+    }
+
+    public static void toastFail(Context context, String msg) {
+        toast(context, TYPE_FAIL, msg, null);
+    }
+
+    public static void toastFail(Context context, String msg, OnToastDismissListener listener) {
+        toast(context, TYPE_FAIL, msg, listener);
+    }
+
+    private static void toast(Context context, int type, String msg, final OnToastDismissListener dismissListener) {
+        View view = LayoutInflater.from(context).inflate(R.layout.ui_view_toast_dialog, null);
+        if (dismissListener != null) {
+            view.addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() {
+                @Override
+                public void onViewAttachedToWindow(View v) {
+                    dismissListener.onShow();
+                }
+
+                @Override
+                public void onViewDetachedFromWindow(View v) {
+                    dismissListener.onDismiss();
+                }
+            });
+        }
 
         ((TextView) view.findViewById(R.id.tvMsg)).setText(msg);
-        ImageView imgIcon = view.findViewById(R.id.imgIcon);
-        imgIcon.setImageResource(R.drawable.ui_icon_success);
 
-        // 这里帧动画不用启动也可以播放
-//        AnimationDrawable animation = (AnimationDrawable) imgIcon.getDrawable();
-//        animation.start();
+        ImageView imgIcon = view.findViewById(R.id.imgIcon);
+        if (type == TYPE_SUCCESS) {
+            imgIcon.setImageResource(R.drawable.ui_icon_success);
+        } else {
+            imgIcon.setImageResource(R.drawable.ui_icon_fail);
+        }
 
         Toast toast = new Toast(context);
         toast.setView(view);
         toast.setGravity(Gravity.CENTER, 0, 0);
-        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setDuration(Toast.LENGTH_SHORT);
         toast.show();
     }
 }

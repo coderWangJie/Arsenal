@@ -6,7 +6,10 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowBackground">@color/theme_default_background</item><!-- 默认背景颜色 -->
+        <!-- 默认背景颜色 -->
+        <item name="android:windowBackground">@color/theme_default_background</item>
+        <!-- 禁止Button等控件字母自动转大写 -->
+        <item name="android:textAllCaps">false</item>
     </style>
 
 </resources>

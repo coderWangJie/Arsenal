@@ -9,7 +9,7 @@ public class ISplashPresenterImpl implements ISplashPresenter {
 
     private ISplashView splashView;
 
-    private int delaySecond = 4;
+    private int delaySecond = 2;
 
     public ISplashPresenterImpl(ISplashView splashView) {
         this.splashView = splashView;
