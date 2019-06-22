@@ -26,27 +26,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#F2B8FA"
-        android:text="Toast模拟对话框展示失败" />
+        android:text="" />
 
     <Button
         android:id="@+id/tabLayoutRecyclerView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#94F6DC"
-        android:text="Toast模拟对话框展示失败+消失监听" />
+        android:text="" />
 
     <Button
         android:id="@+id/tabLayoutRecyclerView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#94F6DC"
-        android:text="自定义外观Toast-Positive" />
+        android:text="TabLayout+RecyclerView" />
 
     <Button
         android:id="@+id/tabLayoutRecyclerView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#94F6DC"
-        android:text="自定义外观Toast-Neutral" />
+        android:text="" />
 
 </LinearLayout>

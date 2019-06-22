@@ -12,9 +12,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!-- android:fitsSystemWindows="true"好像没啥用, true/false好像没发现不同 -->
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#F37BA4"
             android:fitsSystemWindows="true">
 
             <!-- app:layout_scrollFlags属性表明本View随布局滑动可以划出屏幕 -->
@@ -25,7 +27,7 @@
                 app:layout_scrollFlags="scroll">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="60dp"
                     android:background="#DCAAF8"
                     android:gravity="center"
@@ -41,7 +43,7 @@
 
             <!-- 无app:layout_scrollFlags属性，该View滑到顶部时停留在顶部 -->
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="60dp"
                 android:background="#969798"
                 android:gravity="center"
