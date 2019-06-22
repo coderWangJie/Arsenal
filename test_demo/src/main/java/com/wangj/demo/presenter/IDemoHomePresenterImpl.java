@@ -22,7 +22,8 @@ public class IDemoHomePresenterImpl implements IDemoHomePresenter {
         list.add(new DemoVo(ARoutMapping.DemoMapping.CoordinatorAppBarLayout, "CoordinatorLayout + AppBarLayout模拟支付宝菜单页"));
         list.add(new DemoVo(ARoutMapping.DemoMapping.CardView, "CardView"));
         list.add(new DemoVo(ARoutMapping.DemoMapping.Toast, "各种Toast"));
-
+        list.add(new DemoVo(ARoutMapping.DemoMapping.TabLayout, "TabLayout的使用"));
+        list.add(new DemoVo(ARoutMapping.DemoMapping.Temp, "转场动画"));
 
         iDemoHomeView.updadeDemoList(list);
     }

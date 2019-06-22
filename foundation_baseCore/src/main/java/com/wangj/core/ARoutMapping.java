@@ -11,6 +11,17 @@ public class ARoutMapping {
         public final static String CoordinatorAppBarLayout = "/demo/CoordinatorAppBarLayout";
         public final static String CardView = "/demo/CardView";
         public final static String Toast = "/demo/Toast";
+
+        public final static String TabLayout = "/demo/TabLayout";
+        public final static String TabLayoutViewPager1 = "/demo/TabLayoutViewPager1";
+        public final static String TabLayoutViewPager2 = "/demo/TabLayoutViewPager2";
+        public final static String TabLayoutViewPager3 = "/demo/TabLayoutViewPager3";
+        public final static String TabLayoutRecyclerView1 = "/demo/TabLayoutRecyclerView1";
+        public final static String TabLayoutRecyclerView2 = "/demo/TabLayoutRecyclerView2";
+        public final static String TabLayoutRecyclerView3 = "/demo/TabLayoutRecyclerView3";
+
+        public final static String Temp = "/demo/x?";
+
     }
 
     /**

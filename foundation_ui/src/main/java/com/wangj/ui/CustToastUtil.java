@@ -1,9 +1,7 @@
 package com.wangj.ui;
 
 import android.content.Context;
-import android.graphics.drawable.AnimatedImageDrawable;
 import android.graphics.drawable.AnimationDrawable;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -32,17 +30,15 @@ public class CustToastUtil {
         View view = LayoutInflater.from(context).inflate(R.layout.ui_view_toast_cust, null);
         ((TextView) view.findViewById(R.id.tvMessage)).setText(msg);
 
-
         ImageView imgIcon = view.findViewById(R.id.imgIcon);
         if (type == TYPE_POSITIVE) {
             imgIcon.setImageResource(R.drawable.ui_frame_face_positive);
         } else if (type == TYPE_NEUTRAL) {
             imgIcon.setImageResource(R.drawable.ui_frame_face_neutral);
-        } else {
+        } else if (type == TYPE_NEGATIVE) {
             imgIcon.setImageResource(R.drawable.ui_frame_face_negative);
         }
 
-        // 这里帧动画不用启动也可以播放
         AnimationDrawable animation = (AnimationDrawable) imgIcon.getDrawable();
         animation.start();
 

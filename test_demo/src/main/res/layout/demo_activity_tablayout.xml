@@ -5,55 +5,48 @@
     android:layout_height="wrap_content"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".ToastActivity">
+    tools:context=".TabLayoutActivity">
 
     <Button
-        android:id="@+id/buttonSuccess1"
+        android:id="@+id/tabLayoutViewPager1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#BCFAB8"
-        android:text="Toast模拟对话框展示成功" />
+        android:background="#F2B8FA"
+        android:text="原生TabLayout+ViewPager" />
 
     <Button
-        android:id="@+id/buttonSuccess2"
+        android:id="@+id/tabLayoutViewPager2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#BCFAB8"
-        android:text="Toast模拟对话框展示成功+消失监听" />
+        android:background="#F2B8FA"
+        android:text="自定义Tab的外观" />
 
     <Button
-        android:id="@+id/buttonFail1"
+        android:id="@+id/tabLayoutViewPager3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#BCFAB8"
+        android:background="#F2B8FA"
         android:text="Toast模拟对话框展示失败" />
 
     <Button
-        android:id="@+id/buttonFail2"
+        android:id="@+id/tabLayoutRecyclerView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#BCFAB8"
+        android:background="#94F6DC"
         android:text="Toast模拟对话框展示失败+消失监听" />
 
     <Button
-        android:id="@+id/buttonPositive"
+        android:id="@+id/tabLayoutRecyclerView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#F2B8FA"
+        android:background="#94F6DC"
         android:text="自定义外观Toast-Positive" />
 
     <Button
-        android:id="@+id/buttonNeutral"
+        android:id="@+id/tabLayoutRecyclerView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#F2B8FA"
+        android:background="#94F6DC"
         android:text="自定义外观Toast-Neutral" />
-
-    <Button
-        android:id="@+id/buttonNegative"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#F2B8FA"
-        android:text="自定义外观Toast-Negative" />
 
 </LinearLayout>

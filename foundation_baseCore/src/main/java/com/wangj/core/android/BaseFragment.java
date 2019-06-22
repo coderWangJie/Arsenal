@@ -1,5 +1,7 @@
 package com.wangj.core.android;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -16,17 +18,33 @@ import butterknife.Unbinder;
 public abstract class BaseFragment extends Fragment {
 
     private Unbinder unbinder;
+    private BaseActivity activity;
 
     protected abstract int getContentLayoutRes();
+
+    protected abstract void doAfterViewCreated(View view);
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+    }
+
+    @Override
+    public void onAttach(Activity actvty) {
+        super.onAttach(activity);
+        if (actvty instanceof BaseActivity) {
+            activity = (BaseActivity) actvty;
+        }
+    }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view;
         if (getContentLayoutRes() != 0) {
-            view = inflater.inflate(getContentLayoutRes(), container);
+            view = inflater.inflate(getContentLayoutRes(), container, false);
         } else {
-            view = inflater.inflate(R.layout.core_no_content, container);
+            view = inflater.inflate(R.layout.core_no_content, container, false);
         }
         unbinder = ButterKnife.bind(this, view);
         return view;
@@ -35,6 +53,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        doAfterViewCreated(view);
     }
 
     @Override

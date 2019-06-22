@@ -1,6 +1,8 @@
 package com.wangj.demo.model;
 
-public class DemoVo {
+import com.wangj.core.entity.BaseVo;
+
+public class DemoVo extends BaseVo {
     /** ARouter路径，用于路由跳转 */
     private String path;
     /** 名称，用于展示 */

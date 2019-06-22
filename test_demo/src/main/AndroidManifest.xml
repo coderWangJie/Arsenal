@@ -10,6 +10,10 @@
             android:theme="@style/Theme.MaterialComponents.Light" />
         <activity android:name=".CardViewActivity" />
         <activity android:name=".ToastActivity" />
+        <activity android:name=".TabLayoutActivity" />
+        <activity android:name=".TabLayoutViewPager1Activity" />
+        <activity android:name=".TabLayoutViewPager2Activity" />
+        <activity android:name=".TabLayoutRecyclerView2Activity" />
     </application>
 
 </manifest>
