@@ -5,6 +5,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.wangj.core.ARoutMapping;
 import com.wangj.core.android.BaseActivity;
 import com.wangj.core.menu.MenuDAO;
@@ -47,7 +48,7 @@ public class MainActivity extends BaseActivity {
     @OnClick(R2.id.imgDemo)
     void onViewClick(View view) {
         if (view.getId() == R.id.imgDemo) {
-//            ARouter.getInstance().build(ARoutMapping.DemoMapping.Home).navigation();
+            ARouter.getInstance().build(ARoutMapping.DemoMapping.Home).navigation();
 
 //            MenuItemVO menuItemVO = new MenuItemVO();
 //            menuItemVO.setID("1001");
@@ -58,13 +59,13 @@ public class MainActivity extends BaseActivity {
 //            menuItemVO.setSort(9);
 //            MenuManager.saveMenu(menuItemVO);
 
-            MenuGroupVO groupVo = new MenuGroupVO();
-            groupVo.setGroupID("10");
-            groupVo.setGroupName("一号组");
-            groupVo.setSort(1);
-            MenuManager.saveMenuGroup(groupVo);
+//            MenuGroupVO groupVo = new MenuGroupVO();
+//            groupVo.setGroupID("10");
+//            groupVo.setGroupName("一号组");
+//            groupVo.setSort(1);
+//            MenuManager.saveMenuGroup(groupVo);
 
-            MenuDAO.getInstance().deleltAllMenuGroup();
+//            MenuDAO.getInstance().deleltAllMenuGroup();
 
 //            MenuManager.queryMenuGroups();
 
