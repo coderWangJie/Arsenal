@@ -20,7 +20,7 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
-# alibaba ARouter防混淆
+# ------Alibaba ARouter防混淆------------------------------------------------------
 -keep public class com.alibaba.android.arouter.routes.**{*;}
 -keep public class com.alibaba.android.arouter.facade.**{*;}
 -keep class * implements com.alibaba.android.arouter.facade.template.ISyringe{*;}
@@ -32,7 +32,7 @@
 # -keep class * implements com.alibaba.android.arouter.facade.template.IProvider
 
 
-# butterknife防混淆
+# -------ButterKnife防混淆----------------------------------------------------------
 -keep class butterknife.** { *; }
 -dontwarn butterknife.internal.**
 -keep class **$$ViewBinder { *; }
@@ -41,4 +41,15 @@
 }
 -keepclasseswithmembernames class * {
     @butterknife.* <methods>;
+}
+
+# -------EventBus防混淆--------------------------------------------------------------
+-keepattributes *Annotation*
+-keepclassmembers class * {
+    @org.greenrobot.eventbus.Subscribe <methods>;
+}
+-keep enum org.greenrobot.eventbus.ThreadMode { *; }
+# Only required if you use AsyncExecutor
+-keepclassmembers class * extends org.greenrobot.eventbus.util.ThrowableFailureEvent {
+    <init>(java.lang.Throwable);
 }

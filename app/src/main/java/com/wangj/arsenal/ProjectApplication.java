@@ -7,6 +7,8 @@ import com.wangj.core.android.BaseApplication;
 import com.wangj.core.util.LogUtil;
 
 public class ProjectApplication extends BaseApplication {
+    private static final String TAG = ProjectApplication.class.getSimpleName();
+
     @Override
     public void onCreate() {
         super.onCreate();
