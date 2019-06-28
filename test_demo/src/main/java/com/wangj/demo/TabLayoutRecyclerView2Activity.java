@@ -48,7 +48,7 @@ public class TabLayoutRecyclerView2Activity extends BaseActivity {
     }
 
     @Override
-    protected void doBeforeResume() {
+    protected void initOnCreate() {
         dataList = new ArrayList<>();
         dataList.add("这个是第一个");
         dataList.add("2");

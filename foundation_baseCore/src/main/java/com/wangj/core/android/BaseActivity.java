@@ -30,7 +30,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected abstract void registerPresenter();
 
-    protected abstract void doBeforeResume();
+    protected abstract void initOnCreate();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,7 +50,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         registerPresenter();
 
-        doBeforeResume();
+        initOnCreate();
     }
 
     @Override

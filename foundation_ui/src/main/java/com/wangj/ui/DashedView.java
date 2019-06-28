@@ -36,9 +36,9 @@ public class DashedView extends View {
         super(context);
         setLayerType(View.LAYER_TYPE_SOFTWARE, null); // 本View关闭硬件加速，否则画出来是实线
 
-        size = ViewUtil.dip2px(context, 1f);
-        dashed = ViewUtil.dip2px(context, 5);
-        dashGap = ViewUtil.dip2px(context, 2);
+        size = ViewUtil.dp2px(context, 1f);
+        dashed = ViewUtil.dp2px(context, 5);
+        dashGap = ViewUtil.dp2px(context, 2);
         dashedColor = Color.BLACK;
         direction = 0;
 
@@ -50,9 +50,9 @@ public class DashedView extends View {
         setLayerType(View.LAYER_TYPE_SOFTWARE, null); // 本View关闭硬件加速，否则画出来是实线
 
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.DashedView);
-        size = typedArray.getDimension(R.styleable.DashedView_size, ViewUtil.dip2px(context, 0.5f));
-        dashed = typedArray.getDimension(R.styleable.DashedView_dashed, ViewUtil.dip2px(context, 5));
-        dashGap = typedArray.getDimension(R.styleable.DashedView_dashedGap, ViewUtil.dip2px(context, 2));
+        size = typedArray.getDimension(R.styleable.DashedView_size, ViewUtil.dp2px(context, 0.5f));
+        dashed = typedArray.getDimension(R.styleable.DashedView_dashed, ViewUtil.dp2px(context, 5));
+        dashGap = typedArray.getDimension(R.styleable.DashedView_dashedGap, ViewUtil.dp2px(context, 2));
         dashedColor = typedArray.getColor(R.styleable.DashedView_dashedColor, Color.BLACK);
         direction = typedArray.getInt(R.styleable.DashedView_direction, 0);
         typedArray.recycle();

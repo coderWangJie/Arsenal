@@ -17,7 +17,7 @@ public class ButtonsActivity extends BaseActivity {
     }
 
     @Override
-    protected void doBeforeResume() {
+    protected void initOnCreate() {
 
     }
 }

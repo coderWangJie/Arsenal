@@ -2,5 +2,5 @@ package com.wangj.core.entity;
 
 import java.io.Serializable;
 
-public class BaseVo implements Serializable {
+public class BaseVO implements Serializable {
 }

@@ -14,7 +14,7 @@ public class ViewUtil {
      * @param dpValue dp、sp的值
      * @return 转换后的px值
      */
-    public static int dip2px(Context context, float dpValue) {
+    public static int dp2px(Context context, float dpValue) {
         float scale = context.getResources().getDisplayMetrics().scaledDensity;
         return (int) (dpValue * scale + 0.5f);
     }
