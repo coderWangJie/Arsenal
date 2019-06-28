@@ -39,7 +39,7 @@ public class CoordinatorAppBarLayoutActivity extends BaseActivity {
     }
 
     @Override
-    protected void doBeforeResume() {
+    protected void initOnCreate() {
         List<String> tempTop = new ArrayList<>();
         for (int i = 0; i < 3; i++) {
             tempTop.add("Item-" + i);

@@ -2,14 +2,14 @@ package com.wangj.demo.model;
 
 import android.support.v4.app.Fragment;
 
-import com.wangj.core.entity.BaseVo;
+import com.wangj.core.entity.BaseVO;
 
-public class TabViewPagerVo extends BaseVo {
+public class TabViewPagerVO extends BaseVO {
 
     private String title;
     private Fragment fragment;
 
-    public TabViewPagerVo(String title, Fragment fragment) {
+    public TabViewPagerVO(String title, Fragment fragment) {
         this.title = title;
         this.fragment = fragment;
     }

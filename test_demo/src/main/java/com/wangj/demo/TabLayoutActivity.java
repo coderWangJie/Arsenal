@@ -20,7 +20,7 @@ public class TabLayoutActivity extends BaseActivity {
     }
 
     @Override
-    protected void doBeforeResume() {
+    protected void initOnCreate() {
 
     }
 

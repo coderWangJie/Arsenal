@@ -17,7 +17,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
             // 该语句将在"build\generated\source\buildConfig\debug\包名\BuildConfig.java"中添加指定名称的常量
-            buildConfigField("boolean", "showLog", "${showLog}")
             buildConfigField("int", "showLogLevel", "${showLogLevel}")
         }
 
@@ -26,7 +25,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
             // 该语句将在"build\generated\source\buildConfig\debug\包名\BuildConfig.java"中添加指定名称的常量
-            buildConfigField("boolean", "showLog", "${showLog}")
             buildConfigField("int", "showLogLevel", "${showLogLevel}")
         }
     }

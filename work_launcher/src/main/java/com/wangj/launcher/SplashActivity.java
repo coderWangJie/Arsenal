@@ -31,7 +31,7 @@ public class SplashActivity extends BaseActivity implements ISplashView {
     }
 
     @Override
-    protected void doBeforeResume() {
+    protected void initOnCreate() {
 
     }
 

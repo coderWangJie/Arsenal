@@ -42,7 +42,7 @@ public class LoginActivity extends BaseActivity implements ILoginView {
     }
 
     @Override
-    protected void doBeforeResume() {
+    protected void initOnCreate() {
         editAccount = (TextInputEditText) layoutAccount.getEditText();
         editPassword = (TextInputEditText) layoutPassword.getEditText();
 

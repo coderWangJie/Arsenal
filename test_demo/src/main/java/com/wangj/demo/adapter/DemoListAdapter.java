@@ -10,15 +10,15 @@ import android.widget.TextView;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.wangj.demo.R;
-import com.wangj.demo.model.DemoVo;
+import com.wangj.demo.model.DemoVO;
 
 import java.util.List;
 
 public class DemoListAdapter extends RecyclerView.Adapter<DemoListAdapter.DemoItemHolder> {
 
-    private List<DemoVo> list;
+    private List<DemoVO> list;
 
-    public DemoListAdapter(@NonNull List<DemoVo> list) {
+    public DemoListAdapter(@NonNull List<DemoVO> list) {
         this.list = list;
     }
 
@@ -30,7 +30,7 @@ public class DemoListAdapter extends RecyclerView.Adapter<DemoListAdapter.DemoIt
 
     @Override
     public void onBindViewHolder(@NonNull DemoItemHolder demoItemHolder, int i) {
-        final DemoVo itemVo = list.get(i);
+        final DemoVO itemVo = list.get(i);
         demoItemHolder.tvName.setText(itemVo.getName());
         demoItemHolder.tvPath.setText(itemVo.getPath());
 

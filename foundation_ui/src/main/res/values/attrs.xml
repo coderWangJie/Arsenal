@@ -7,6 +7,7 @@
         <enum name="leftTop_rightBottom" value="2" />
         <enum name="rightTop_leftBottom" value="3" />
     </attr>
+
     <declare-styleable name="DashedView">
         <attr name="size" format="dimension" />
         <attr name="dashed" format="dimension" />

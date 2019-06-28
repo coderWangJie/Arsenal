@@ -5,10 +5,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.wangj.core.ARoutMapping;
 import com.wangj.core.android.BaseActivity;
-import com.wangj.core.constant.IntentConstant;
+import com.wangj.core.menu.MenuDAO;
+import com.wangj.core.menu.MenuGroupVO;
+import com.wangj.core.menu.MenuItemVO;
+import com.wangj.core.menu.MenuManager;
+import com.wangj.core.sqlite.DBConstant;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -32,7 +35,7 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
-    protected void doBeforeResume() {
+    protected void initOnCreate() {
 
     }
 
@@ -44,7 +47,31 @@ public class MainActivity extends BaseActivity {
     @OnClick(R2.id.imgDemo)
     void onViewClick(View view) {
         if (view.getId() == R.id.imgDemo) {
-            ARouter.getInstance().build(ARoutMapping.DemoMapping.Home).navigation();
+//            ARouter.getInstance().build(ARoutMapping.DemoMapping.Home).navigation();
+
+//            MenuItemVO menuItemVO = new MenuItemVO();
+//            menuItemVO.setID("1001");
+//            menuItemVO.setName("测试菜单");
+//            menuItemVO.setIconUrl("xxxx/xxxx");
+//            menuItemVO.setActionType("N");
+//            menuItemVO.setGroupID("101");
+//            menuItemVO.setSort(9);
+//            MenuManager.saveMenu(menuItemVO);
+
+            MenuGroupVO groupVo = new MenuGroupVO();
+            groupVo.setGroupID("10");
+            groupVo.setGroupName("一号组");
+            groupVo.setSort(1);
+            MenuManager.saveMenuGroup(groupVo);
+
+            MenuDAO.getInstance().deleltAllMenuGroup();
+
+//            MenuManager.queryMenuGroups();
+
+//            MenuDAO.getInstance().selectAllMenu();
+
+//            MenuDAO.getInstance().selectMenuByGroupID("101");
+
 
 //            ARouter.getInstance().build(ARoutMapping.WebMapping.WebView)
 //                    .withString(IntentConstant.WEB_URL, "")

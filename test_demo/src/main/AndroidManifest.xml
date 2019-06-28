@@ -14,6 +14,7 @@
         <activity android:name=".TabLayoutViewPager1Activity" />
         <activity android:name=".TabLayoutViewPager2Activity" />
         <activity android:name=".TabLayoutRecyclerView2Activity" />
+        <activity android:name=".TabLayoutRecyclerView3Activity" />
     </application>
 
 </manifest>

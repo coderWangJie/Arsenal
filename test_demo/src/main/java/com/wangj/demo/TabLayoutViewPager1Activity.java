@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.wangj.core.ARoutMapping;
 import com.wangj.core.android.BaseActivity;
-import com.wangj.demo.model.TabViewPagerVo;
+import com.wangj.demo.model.TabViewPagerVO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +30,7 @@ public class TabLayoutViewPager1Activity extends BaseActivity {
     FragmentManager manager;
     private FragmentTransaction transtion;
 
-    private List<TabViewPagerVo> dataList;
+    private List<TabViewPagerVO> dataList;
 
     private MyFragmentPageAdapter adapter;
 
@@ -45,25 +45,25 @@ public class TabLayoutViewPager1Activity extends BaseActivity {
     }
 
     @Override
-    protected void doBeforeResume() {
+    protected void initOnCreate() {
         dataList = new ArrayList<>();
 
-        TabViewPagerVo item1 = new TabViewPagerVo("这个是第一个", new TabFragment1());
+        TabViewPagerVO item1 = new TabViewPagerVO("这个是第一个", new TabFragment1());
         dataList.add(item1);
 
-        TabViewPagerVo item2 = new TabViewPagerVo("2", new TabFragment2());
+        TabViewPagerVO item2 = new TabViewPagerVO("2", new TabFragment2());
         dataList.add(item2);
 
-        TabViewPagerVo item3 = new TabViewPagerVo("3", new TabFragment3());
+        TabViewPagerVO item3 = new TabViewPagerVO("3", new TabFragment3());
         dataList.add(item3);
 
-        TabViewPagerVo item4 = new TabViewPagerVo("I'am Fourth", new TabFragment4());
+        TabViewPagerVO item4 = new TabViewPagerVO("I'am Fourth", new TabFragment4());
         dataList.add(item4);
 
-        TabViewPagerVo item5 = new TabViewPagerVo("第5个", new TabFragment1());
+        TabViewPagerVO item5 = new TabViewPagerVO("第5个", new TabFragment1());
         dataList.add(item5);
 
-        TabViewPagerVo item6 = new TabViewPagerVo("第六", new TabFragment2());
+        TabViewPagerVO item6 = new TabViewPagerVO("第六", new TabFragment2());
         dataList.add(item6);
 
         //使用manager和transtion提交事务后为viewpager设置一个适配器
@@ -90,9 +90,9 @@ public class TabLayoutViewPager1Activity extends BaseActivity {
 
     private class MyFragmentPageAdapter extends FragmentPagerAdapter {
 
-        private List<TabViewPagerVo> list;
+        private List<TabViewPagerVO> list;
 
-        public MyFragmentPageAdapter(FragmentManager fm, List<TabViewPagerVo> list) {
+        public MyFragmentPageAdapter(FragmentManager fm, List<TabViewPagerVO> list) {
             super(fm);
             this.list = list;
         }

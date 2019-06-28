@@ -47,6 +47,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#94F6DC"
-        android:text="" />
+        android:text="支付宝全部菜单页TabLayout+RecyclerView联动效果" />
 
 </LinearLayout>

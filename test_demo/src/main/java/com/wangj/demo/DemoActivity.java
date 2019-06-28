@@ -1,19 +1,14 @@
 package com.wangj.demo;
 
-import android.graphics.drawable.GradientDrawable;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.wangj.core.ARoutMapping;
 import com.wangj.core.android.BaseActivity;
-import com.wangj.demo.R;
-import com.wangj.demo.R2;
 import com.wangj.demo.adapter.DemoListAdapter;
-import com.wangj.demo.model.DemoVo;
+import com.wangj.demo.model.DemoVO;
 import com.wangj.demo.presenter.IDemoHomePresenter;
 import com.wangj.demo.presenter.IDemoHomePresenterImpl;
 import com.wangj.demo.view.IDemoHomeView;
@@ -31,7 +26,7 @@ public class DemoActivity extends BaseActivity implements IDemoHomeView {
 
     IDemoHomePresenter iDemoHomePresenter;
 
-    private ArrayList<DemoVo> list;
+    private ArrayList<DemoVO> list;
     private DemoListAdapter adapter;
 
     @Override
@@ -45,7 +40,7 @@ public class DemoActivity extends BaseActivity implements IDemoHomeView {
     }
 
     @Override
-    protected void doBeforeResume() {
+    protected void initOnCreate() {
         list = new ArrayList<>();
         adapter = new DemoListAdapter(list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -56,7 +51,7 @@ public class DemoActivity extends BaseActivity implements IDemoHomeView {
     }
 
     @Override
-    public void updadeDemoList(List<DemoVo> data) {
+    public void updadeDemoList(List<DemoVO> data) {
         list.clear();
         list.addAll(data);
         adapter.notifyDataSetChanged();

@@ -16,7 +16,7 @@ public class WebViewActivity extends BaseActivity {
 
     @Override
     protected int getContentLayoutRes() {
-        return R.layout.h5_webview;
+        return R.layout.h5_activity_webview;
     }
 
     @Override
@@ -28,7 +28,7 @@ public class WebViewActivity extends BaseActivity {
     }
 
     @Override
-    protected void doBeforeResume() {
+    protected void initOnCreate() {
 
     }
 }
