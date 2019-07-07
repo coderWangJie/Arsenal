@@ -21,7 +21,7 @@ public class TablayoutRecyclerViewAdapter extends RecyclerView.Adapter {
     private static final int TYPE_ITEM = 1;
     private static final int TYPE_FOOTER = 2;
 
-    private int FOOTER_COUNT = 0;
+    private int FOOTER_COUNT;
 
     private List<BaseVO> list;
 
@@ -73,18 +73,20 @@ public class TablayoutRecyclerViewAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder itemViewHolder, int i) {
         if (itemViewHolder instanceof SectionViewHolder) {
             ((SectionViewHolder) itemViewHolder).textView.setText(((TabLayoutRecyclerView3Activity.Section)list.get(i)).getSecName());
+
+            // 记录菜单组标题的高度（同类ViewHolder高度一致此方法有效，如果同类ViewHolder高度不一致，则需要改变记录规则）
             if (sectionLayoutHeight == 0) {
                 sectionLayoutHeight = itemViewHolder.itemView.getHeight();
             }
         } else if (itemViewHolder instanceof ItemViewHolder) {
             ((ItemViewHolder) itemViewHolder).textView.setText(((TabLayoutRecyclerView3Activity.Item)list.get(i)).getName());
+
+            // 记录菜单项的高度（同类ViewHolder高度一致此方法有效，如果同类ViewHolder高度不一致，则需要改变记录规则）
             if (itemLayoutHeight == 0) {
                 itemLayoutHeight = itemViewHolder.itemView.getHeight();
             }
         } else if (itemViewHolder instanceof FooterViewHolder) {
-
             int height = itemLayoutHeight * ((int) Math.ceil(lastSectionChildCount / (double) spanCount)) + sectionLayoutHeight;
-
             itemViewHolder.itemView.setLayoutParams(new LinearLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, containerHeight - height));
         }
     }
@@ -110,7 +112,7 @@ public class TablayoutRecyclerViewAdapter extends RecyclerView.Adapter {
     }
 
     /**
-     *
+     *  菜单组标题ViewHolder
      */
     static class SectionViewHolder extends RecyclerView.ViewHolder {
 
@@ -124,7 +126,7 @@ public class TablayoutRecyclerViewAdapter extends RecyclerView.Adapter {
     }
 
     /**
-     *
+     * 菜单项ViewHolder
      */
     static class ItemViewHolder extends RecyclerView.ViewHolder {
         private TextView textView;
@@ -136,7 +138,7 @@ public class TablayoutRecyclerViewAdapter extends RecyclerView.Adapter {
     }
 
     /**
-     *
+     * “脚”，用于填充页面，使得最后一个菜单组可以顶到页面头部
      */
     static class FooterViewHolder extends RecyclerView.ViewHolder {
         public FooterViewHolder(@NonNull View itemView) {

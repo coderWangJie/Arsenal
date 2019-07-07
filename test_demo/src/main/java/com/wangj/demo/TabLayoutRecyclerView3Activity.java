@@ -4,7 +4,6 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,7 +26,8 @@ import butterknife.BindView;
 
 @Route(path = ARoutMapping.DemoMapping.TabLayoutRecyclerView3)
 public class TabLayoutRecyclerView3Activity extends BaseActivity {
-    private int SpanCount = 3;
+    /** 每行展示菜单数量 */
+    private int SPAN_COUNT = 3;
 
     @BindView(R2.id.tabLayout)
     TabLayout tabLayout;
@@ -35,14 +35,32 @@ public class TabLayoutRecyclerView3Activity extends BaseActivity {
     @BindView(R2.id.recyclerView)
     RecyclerView recyclerView;
 
-    GridLayoutManager gridLayoutManager;
-    TablayoutRecyclerViewAdapter adapter;
+    private GridLayoutManager gridLayoutManager;
+    private TablayoutRecyclerViewAdapter adapter;
 
-    ArrayList<BaseVO> dataList;
+    private LinkedHashMap<Section, ArrayList<Item>> map;
+    private ArrayList<BaseVO> dataList;
 
-    int recyclerViewScrollState = 0;
+    /**
+     * RecyclerView的滑动状态标记<br/>
+     * {@link RecyclerView#SCROLL_STATE_IDLE}：The RecyclerView is not currently scrolling;<br/>
+     * {@link RecyclerView#SCROLL_STATE_DRAGGING}：The RecyclerView is currently being dragged by outside input such as user touch input;<br/>
+     * {@link RecyclerView#SCROLL_STATE_SETTLING}：The RecyclerView is currently animating to a final position while not under outside control.<br/>
+     */
+    private int recyclerViewScrollState = 0;
 
-    private int lastSectinChildNum = 0;
+    /**  */
+    private int lastTabSelectPos = -1;
+    /**  */
+    private int tabSelectPos;
+
+    /**  */
+    private int lastTimeRecyclerPos = -1;
+    /**  */
+    private int currentFirstVisiblePos;
+
+    /** 最后一个菜单组中菜单项的数量 */
+    private int lastSectionChildNum = 0;
 
     @Override
     protected int getContentLayoutRes() {
@@ -64,11 +82,11 @@ public class TabLayoutRecyclerView3Activity extends BaseActivity {
 
         createData();
 
-        gridLayoutManager = new GridLayoutManager(this, SpanCount);
+        gridLayoutManager = new GridLayoutManager(this, SPAN_COUNT);
         recyclerView.setLayoutManager(gridLayoutManager);
 
         adapter = new TablayoutRecyclerViewAdapter(dataList, gridLayoutManager, true);
-        adapter.setLastSectionChildCount(lastSectinChildNum);
+        adapter.setLastSectionChildCount(lastSectionChildNum);
         recyclerView.setAdapter(adapter);
 
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -76,30 +94,43 @@ public class TabLayoutRecyclerView3Activity extends BaseActivity {
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
 
-                LogUtil.d("WangJ", "newState:" + newState);
+                LogUtil.d(TAG, "recyclerView newState:" + newState);
                 recyclerViewScrollState = newState;
             }
 
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
+
+                currentFirstVisiblePos = gridLayoutManager.findFirstVisibleItemPosition();
+                if (lastTimeRecyclerPos != currentFirstVisiblePos) {
+                    lastTimeRecyclerPos = currentFirstVisiblePos;
+                    tabSelectPos = calculateTabPosByRecyclerPos(lastTimeRecyclerPos);
+                    if (lastTabSelectPos != tabSelectPos) {
+                        tabLayout.getTabAt(lastTabSelectPos = tabSelectPos).select();
+                    }
+                }
             }
         });
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
+                onTabSelectedChange(tab, true);
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
+                onTabSelectedChange(tab, false);
             }
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
+                onTabSelectedChange(tab, true);
             }
         });
 
+        // 记录RecyclerView的容器高度
         recyclerView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
@@ -107,6 +138,55 @@ public class TabLayoutRecyclerView3Activity extends BaseActivity {
                 recyclerView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
             }
         });
+    }
+
+    private void onTabSelectedChange(TabLayout.Tab tab, boolean isSelected) {
+        if (isSelected) {
+            ((TextView)tab.getCustomView().findViewById(R.id.tv)).getPaint().setFakeBoldText(true);
+            // 用RecyclerView状态做过滤，防止RecyclerView由于惯性滑动触发Tab选中反过来再滑动RecyclerView导致的使RecyclerView一下滑到顶的问题
+            if (recyclerViewScrollState == RecyclerView.SCROLL_STATE_IDLE) {
+                gridLayoutManager.scrollToPositionWithOffset(calculateRecyclerPosByTabPos(tab.getPosition()), 0);
+            }
+        } else {
+            ((TextView)tab.getCustomView().findViewById(R.id.tv)).getPaint().setFakeBoldText(false);
+        }
+    }
+
+    /**
+     * 根据RecyclerView的索引计算TabLayout对应应该选中的Tab的索引
+     * @param recyclerPos RecyclerView首个可见元素的索引
+     * @return 对应Tab的索引
+     */
+    private int calculateTabPosByRecyclerPos(int recyclerPos) {
+        int index = 0;
+        int count = 0;
+        for (LinkedHashMap.Entry<Section, ArrayList<Item>> item : map.entrySet()) {
+            count = count + 1 + item.getValue().size();
+            if (count <= recyclerPos) {
+                index++;
+            } else {
+                return index;
+            }
+        }
+        return index;
+    }
+
+    /**
+     * 根据选中的TabLayout中Tab的索引计算RecyclerView展示在顶部的item的索引
+     * @param tabPos tab的索引
+     * @return 第一个可见item的索引
+     */
+    private int calculateRecyclerPosByTabPos(int tabPos) {
+        int index = 0;
+        int count = 0;
+        for (LinkedHashMap.Entry<Section, ArrayList<Item>> item : map.entrySet()) {
+            if (index++ < tabPos) {
+                count = count + 1 + item.getValue().size();
+            } else {
+                return count;
+            }
+        }
+        return count;
     }
 
     @Override
@@ -128,14 +208,11 @@ public class TabLayoutRecyclerView3Activity extends BaseActivity {
     }
 
 
-
-
-
-
-
-
+    /**
+     * 生成模拟数据
+     */
     private void createData() {
-        LinkedHashMap<Section, ArrayList<Item>> map = new LinkedHashMap<>();
+        map = new LinkedHashMap<>();
         Section section;
         ArrayList<Item> tempList;
 
@@ -225,12 +302,9 @@ public class TabLayoutRecyclerView3Activity extends BaseActivity {
 
             dataList.addAll(item.getValue());
             // 每次循环记录本组菜单数量，最后一次更新值即为最后一组菜单数量
-            lastSectinChildNum = item.getValue().size();
+            lastSectionChildNum = item.getValue().size();
         }
     }
-
-
-
 
     public class Section extends BaseVO {
         private String secName;
