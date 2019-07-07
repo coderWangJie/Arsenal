@@ -1,6 +1,9 @@
 package com.wangj.launcher;
 
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,7 +40,9 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initOnCreate() {
-
+        LinearLayout ll = findViewById(R.id.llLayout);
+        GradientDrawable gradientDrawable =new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, new int[]{Color.parseColor("#000000"), Color.parseColor("#FFFFFF")});
+        ll.setBackground(gradientDrawable);
     }
 
     @Override
