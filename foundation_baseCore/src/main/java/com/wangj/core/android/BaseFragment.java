@@ -15,6 +15,10 @@ import com.wangj.core.R;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
+/**
+ * Fragment基类<p>
+ * 如需使用EventBus，需要在子类Activity中进行注册/注销，在onStop()、onDestroy()中注销效果是不一样的，按需使用。<p>
+ */
 public abstract class BaseFragment extends Fragment {
 
     private Unbinder unbinder;
