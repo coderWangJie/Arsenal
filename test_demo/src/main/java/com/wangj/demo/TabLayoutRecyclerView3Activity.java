@@ -11,7 +11,7 @@ import android.view.ViewTreeObserver;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.wangj.core.ARoutMapping;
+import com.wangj.core.ARouterMapping;
 import com.wangj.core.android.BaseActivity;
 import com.wangj.core.entity.BaseVO;
 import com.wangj.core.util.LogUtil;
@@ -24,7 +24,7 @@ import java.util.Map;
 
 import butterknife.BindView;
 
-@Route(path = ARoutMapping.DemoMapping.TabLayoutRecyclerView3)
+@Route(path = ARouterMapping.DemoMapping.TabLayoutRecyclerView3)
 public class TabLayoutRecyclerView3Activity extends BaseActivity {
     /** 每行展示菜单数量 */
     private int SPAN_COUNT = 3;

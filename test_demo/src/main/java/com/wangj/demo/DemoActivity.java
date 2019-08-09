@@ -5,7 +5,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.wangj.core.ARoutMapping;
+import com.wangj.core.ARouterMapping;
 import com.wangj.core.android.BaseActivity;
 import com.wangj.demo.adapter.DemoListAdapter;
 import com.wangj.demo.model.DemoVO;
@@ -18,7 +18,7 @@ import java.util.List;
 
 import butterknife.BindView;
 
-@Route(path = ARoutMapping.DemoMapping.Home)
+@Route(path = ARouterMapping.DemoMapping.Home)
 public class DemoActivity extends BaseActivity implements IDemoHomeView {
 
     @BindView(R2.id.recyclerView)

@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.wangj.core.ARoutMapping;
+import com.wangj.core.ARouterMapping;
 import com.wangj.core.android.BaseActivity;
 
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ import java.util.List;
 
 import butterknife.BindView;
 
-@Route(path = ARoutMapping.DemoMapping.CoordinatorAppBarLayout)
+@Route(path = ARouterMapping.DemoMapping.CoordinatorAppBarLayout)
 public class CoordinatorAppBarLayoutActivity extends BaseActivity {
 
     @BindView(R2.id.recyclerViewTop)

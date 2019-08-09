@@ -34,4 +34,6 @@ dependencies {
 
     // ARouter依赖
     api Alibaba_ARouterApi
+
+//    api 'com.squareup.okhttp3:okhttp:3.12.1'
 }

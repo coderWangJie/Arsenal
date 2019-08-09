@@ -1,6 +1,29 @@
 package com.wangj.core;
 
-public class ARoutMapping {
+import com.alibaba.android.arouter.core.LogisticsCenter;
+import com.alibaba.android.arouter.exception.NoRouteFoundException;
+import com.alibaba.android.arouter.facade.Postcard;
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.wangj.core.util.LogUtil;
+
+public class ARouterMapping {
+
+    /**
+     * 通过路由地址获取对应 Class
+     *
+     * @param routerPath
+     * @return 对应 Class，返回可能为空
+     */
+    public static Class getClassByPath(String routerPath) {
+        Postcard postcard = ARouter.getInstance().build(routerPath);
+        try {
+            LogisticsCenter.completion(postcard);
+            return postcard.getDestination();
+        } catch (NoRouteFoundException ex) {
+            LogUtil.e("NoRouteFoundException", ex.getMessage());
+        }
+        return null;
+    }
 
     /**
      * Demo Module
@@ -8,6 +31,7 @@ public class ARoutMapping {
     public static class DemoMapping {
         public final static String Home = "/demo/index";
         public final static String Buttons = "/demo/Buttons";
+        public final static String Dialog = "/demo/Dialog";
         public final static String CoordinatorAppBarLayout = "/demo/CoordinatorAppBarLayout";
         public final static String CardView = "/demo/CardView";
         public final static String Toast = "/demo/Toast";

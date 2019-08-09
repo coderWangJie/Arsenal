@@ -3,7 +3,7 @@ package com.wangj.demo;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.wangj.core.ARoutMapping;
+import com.wangj.core.ARouterMapping;
 import com.wangj.core.android.BaseActivity;
 import com.wangj.core.util.LogUtil;
 import com.wangj.ui.CustToastDialogUtil;
@@ -11,7 +11,7 @@ import com.wangj.ui.CustToastUtil;
 
 import butterknife.OnClick;
 
-@Route(path = ARoutMapping.DemoMapping.Toast)
+@Route(path = ARouterMapping.DemoMapping.Toast)
 public class ToastActivity extends BaseActivity {
     @Override
     protected int getContentLayoutRes() {

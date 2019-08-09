@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.wangj.core.ARoutMapping;
+import com.wangj.core.ARouterMapping;
 import com.wangj.core.android.BaseActivity;
 import com.wangj.core.constant.AppConstant;
 import com.wangj.login.presenter.ILoginPresenter;
@@ -18,7 +18,7 @@ import com.wangj.login.ui.ILoginView;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-@Route(path = ARoutMapping.LoginMapping.Login)
+@Route(path = ARouterMapping.LoginMapping.Login)
 public class LoginActivity extends BaseActivity implements ILoginView {
 
     @BindView(R2.id.textInputLayoutAccount)

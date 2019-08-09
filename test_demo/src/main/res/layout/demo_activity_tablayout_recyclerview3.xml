@@ -8,13 +8,17 @@
     android:orientation="vertical"
     tools:context=".TabLayoutRecyclerView2Activity">
 
+    <!-- app:tabIndicatorFullWidth="false"指示器宽度充满Tab为false，使指示器宽度和内容宽度一致 -->
     <android.support.design.widget.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#E9E9E8"
+        android:paddingBottom="2dp"
+        app:tabIndicator="@drawable/demo_shape_tab_indicator"
+        app:tabIndicatorFullWidth="false"
+        app:tabIndicatorHeight="3dp"
         app:tabMode="scrollable"
-        app:tabTextColor="#777777"
-        app:tabSelectedTextColor="#333333"
         app:tabTextAppearance="@style/MyTabTextAppearance" />
 
     <android.support.v7.widget.RecyclerView

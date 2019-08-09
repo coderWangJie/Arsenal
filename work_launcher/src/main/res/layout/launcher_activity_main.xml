@@ -1,49 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context="com.wangj.launcher.MainActivity">
 
-    <ImageView
-        android:id="@+id/imgDemo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@null"
-        android:layout_gravity="center_horizontal"
-        android:src="@drawable/ui_ico_info_green" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:elevation="10dp"
-        android:background="@color/ui_white"
-        android:layout_margin="20dp"
-        android:layout_height="200dp" >
-        <View
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imgDemo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@null"
+            android:src="@drawable/ui_ico_info_green" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Hello World!" />
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:background="#D58F55"/>
-    </LinearLayout>
+            android:layout_height="200dp"
+            android:layout_margin="20dp"
+            android:background="@color/ui_white"
+            android:elevation="5dp">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="#D58F55" />
+        </LinearLayout>
 
 
-    <LinearLayout
-        android:id="@+id/llLayout"
-        android:layout_width="match_parent"
-        android:padding="20dp"
-        android:layout_height="250dp" >
-
-        <View
+        <!--<LinearLayout
+            android:id="@+id/llLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#FFFFFF"/>
+            android:layout_height="250dp"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF" />
+        </LinearLayout>-->
+
+        <com.wangj.ui.ShareButtonView
+            android:id="@+id/shareButton"
+            android:layout_width="400dp"
+            android:layout_height="600dp" />
 
     </LinearLayout>
-
-</LinearLayout>
+</ScrollView>

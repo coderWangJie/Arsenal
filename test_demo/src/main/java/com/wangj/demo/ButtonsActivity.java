@@ -1,10 +1,10 @@
 package com.wangj.demo;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.wangj.core.ARoutMapping;
+import com.wangj.core.ARouterMapping;
 import com.wangj.core.android.BaseActivity;
 
-@Route(path = ARoutMapping.DemoMapping.Buttons)
+@Route(path = ARouterMapping.DemoMapping.Buttons)
 public class ButtonsActivity extends BaseActivity {
     @Override
     protected int getContentLayoutRes() {

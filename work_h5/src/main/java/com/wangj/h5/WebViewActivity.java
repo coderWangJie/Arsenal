@@ -3,12 +3,12 @@ package com.wangj.h5;
 import android.webkit.WebView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.wangj.core.ARoutMapping;
+import com.wangj.core.ARouterMapping;
 import com.wangj.core.android.BaseActivity;
 
 import butterknife.BindView;
 
-@Route(path = ARoutMapping.WebMapping.WebView)
+@Route(path = ARouterMapping.WebMapping.WebView)
 public class WebViewActivity extends BaseActivity {
 
     @BindView(R2.id.webView)

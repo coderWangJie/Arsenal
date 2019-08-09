@@ -1,6 +1,6 @@
 package com.wangj.demo.presenter;
 
-import com.wangj.core.ARoutMapping;
+import com.wangj.core.ARouterMapping;
 import com.wangj.demo.model.DemoVO;
 import com.wangj.demo.view.IDemoHomeView;
 
@@ -17,13 +17,14 @@ public class IDemoHomePresenterImpl implements IDemoHomePresenter {
     public void createDemoDatas() {
         ArrayList<DemoVO> list = new ArrayList<>();
 
-        list.add(new DemoVO(ARoutMapping.LoginMapping.Login, "调起Login"));
-        list.add(new DemoVO(ARoutMapping.DemoMapping.Buttons, "Button && MaterialButton && AppCompatButton"));
-        list.add(new DemoVO(ARoutMapping.DemoMapping.CoordinatorAppBarLayout, "CoordinatorLayout + AppBarLayout模拟支付宝菜单页"));
-        list.add(new DemoVO(ARoutMapping.DemoMapping.CardView, "CardView"));
-        list.add(new DemoVO(ARoutMapping.DemoMapping.Toast, "各种Toast"));
-        list.add(new DemoVO(ARoutMapping.DemoMapping.TabLayout, "TabLayout的使用"));
-        list.add(new DemoVO(ARoutMapping.DemoMapping.Temp, "转场动画"));
+        list.add(new DemoVO(ARouterMapping.LoginMapping.Login, "调起Login"));
+        list.add(new DemoVO(ARouterMapping.DemoMapping.Buttons, "Button && MaterialButton && AppCompatButton"));
+        list.add(new DemoVO(ARouterMapping.DemoMapping.Dialog, "对话框"));
+        list.add(new DemoVO(ARouterMapping.DemoMapping.CoordinatorAppBarLayout, "CoordinatorLayout + AppBarLayout模拟支付宝菜单页"));
+        list.add(new DemoVO(ARouterMapping.DemoMapping.CardView, "CardView"));
+        list.add(new DemoVO(ARouterMapping.DemoMapping.Toast, "各种Toast"));
+        list.add(new DemoVO(ARouterMapping.DemoMapping.TabLayout, "TabLayout的使用"));
+        list.add(new DemoVO(ARouterMapping.DemoMapping.Temp, "转场动画"));
 
         iDemoHomeView.updadeDemoList(list);
     }

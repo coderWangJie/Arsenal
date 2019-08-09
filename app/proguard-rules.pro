@@ -20,6 +20,10 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
+# 实体类防混淆
+-keepclassmembers class * com.wangj.core.entity.BaseVO { *;}
+
+
 # ------Alibaba ARouter防混淆------------------------------------------------------
 -keep public class com.alibaba.android.arouter.routes.**{*;}
 -keep public class com.alibaba.android.arouter.facade.**{*;}

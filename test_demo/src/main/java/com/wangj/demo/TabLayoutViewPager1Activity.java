@@ -9,7 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.wangj.core.ARoutMapping;
+import com.wangj.core.ARouterMapping;
 import com.wangj.core.android.BaseActivity;
 import com.wangj.demo.model.TabViewPagerVO;
 
@@ -18,7 +18,7 @@ import java.util.List;
 
 import butterknife.BindView;
 
-@Route(path = ARoutMapping.DemoMapping.TabLayoutViewPager1)
+@Route(path = ARouterMapping.DemoMapping.TabLayoutViewPager1)
 public class TabLayoutViewPager1Activity extends BaseActivity {
 
     @BindView(R2.id.tabLayout)

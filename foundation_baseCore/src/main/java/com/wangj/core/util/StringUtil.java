@@ -1,5 +1,7 @@
 package com.wangj.core.util;
 
+import android.support.annotation.NonNull;
+import android.text.Editable;
 import android.text.TextUtils;
 
 import org.json.JSONException;
@@ -21,11 +23,16 @@ public class StringUtil {
 
     /**
      * 简单JsonObject的字符串转成HashMap
+     *
      * @param jsonStr {@link String}
      * @return {@link HashMap}
      */
-    public static HashMap<String, String> parseStr2Map(String jsonStr){
+    public static HashMap<String, String> parseJsonStr2Map(String jsonStr) {
         HashMap<String, String> map = new HashMap<>();
+        if (TextUtils.isEmpty(jsonStr)) {
+            return map;
+        }
+
         try {
             JSONObject json = new JSONObject(jsonStr);
             Iterator<?> it = json.keys();
@@ -36,27 +43,46 @@ public class StringUtil {
                 map.put(key, value);
             }
         } catch (JSONException e) {
-            LogUtil.e(TAG, "parseStr2Map()方法Json字符串解析成Map结构出错！");
+            LogUtil.e(TAG, "parseJsonStr2Map()方法Json字符串解析成Map结构出错！");
         }
         return map;
     }
 
     /**
-     * TODO 判断是否全是小写
+     * 判断是否全是小写
      *
-     * @param charSequence
      * @return
      */
-    public static boolean isAllLowerCase(CharSequence charSequence) {
-        return false;
+    public static boolean isAllLowerCase(@NonNull String str) {
+        // 偷懒的方法，如果全转成小写，还和原来一样说明原来就是全部小写
+        return str.equals(str.toLowerCase());
     }
 
     /**
-     * TODO 判断是否全是大写
-     * @param charSequence
+     * 判断是否全是大写
+     *
      * @return
      */
-    public static boolean isAllUpperCase(CharSequence charSequence) {
-        return false;
+    public static boolean isAllUpperCase(@NonNull String str) {
+        // 偷懒的方法，如果全转成大写，还和原来一样说明原来就是全部大写
+        return str.equals(str.toUpperCase());
+    }
+
+    /**
+     * 字符串中HTML标记转换
+     *
+     * @param originalStr
+     * @return
+     */
+    public static String transHtmlTags(String originalStr) {
+        if (isNotEmpty(originalStr)) {
+            return originalStr.replaceAll("&lt;", "<")
+                    .replaceAll("&gt;", ">")
+                    .replaceAll("&amp;", "&")
+                    .replaceAll("&apos;", "'")
+                    .replaceAll("&quot;", "\"");
+        } else {
+            return "";
+        }
     }
 }

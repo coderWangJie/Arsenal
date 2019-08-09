@@ -4,10 +4,11 @@
 
     <application>
         <activity android:name=".DemoActivity" />
-        <activity android:name=".CoordinatorAppBarLayoutActivity" />
         <activity
             android:name=".ButtonsActivity"
             android:theme="@style/Theme.MaterialComponents.Light" />
+        <activity android:name=".DialogsActivity" />
+        <activity android:name=".CoordinatorAppBarLayoutActivity" />
         <activity android:name=".CardViewActivity" />
         <activity android:name=".ToastActivity" />
         <activity android:name=".TabLayoutActivity" />
