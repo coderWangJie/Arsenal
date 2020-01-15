@@ -51,10 +51,5 @@
                 android:background="#FFFFFF" />
         </LinearLayout>-->
 
-        <com.wangj.ui.ShareButtonView
-            android:id="@+id/shareButton"
-            android:layout_width="400dp"
-            android:layout_height="600dp" />
-
     </LinearLayout>
 </ScrollView>

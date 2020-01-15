@@ -16,7 +16,7 @@ import com.wangj.core.android.BaseActivity;
 import com.wangj.core.entity.BaseVO;
 import com.wangj.core.util.LogUtil;
 import com.wangj.demo.adapter.TablayoutRecyclerViewAdapter;
-import com.wangj.ui.CustToastUtil;
+import com.wangj.ui.ToastEmotionalUtil;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -201,7 +201,7 @@ public class TabLayoutRecyclerView3Activity extends BaseActivity {
             finish();
             return true;
         } else if (item.getItemId() == R.id.menu_edit_menu) {
-            CustToastUtil.toastPositive(this, "菜单标题：".concat(item.getTitle().toString()));
+            ToastEmotionalUtil.toastPositive(this, "菜单标题：".concat(item.getTitle().toString()));
             return true;
         }
         return super.onOptionsItemSelected(item);
