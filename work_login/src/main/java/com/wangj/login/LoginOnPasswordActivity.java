@@ -5,21 +5,20 @@ import android.support.design.widget.TextInputLayout;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.wangj.core.ARouterMapping;
-import com.wangj.core.android.BaseActivity;
 import com.wangj.core.constant.AppConstant;
-import com.wangj.login.presenter.ILoginPresenter;
-import com.wangj.login.presenter.ILoginPresenterImpl;
-import com.wangj.login.ui.ILoginView;
+import com.wangj.core.user.UserInfo;
+import com.wangj.login.presenter.ILoginOnPwdPresenter;
+import com.wangj.login.presenter.ILoginOnPwdPresenterImpl;
+import com.wangj.login.ui.ILoginOnPwdView;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 
-@Route(path = ARouterMapping.LoginMapping.Login)
-public class LoginActivity extends BaseActivity implements ILoginView {
+@Route(path = ARouterMapping.LoginMapping.LoginOnPassword)
+public class LoginOnPasswordActivity extends BaseLoginActivity implements ILoginOnPwdView {
 
     @BindView(R2.id.textInputLayoutAccount)
     TextInputLayout layoutAccount;
@@ -29,16 +28,16 @@ public class LoginActivity extends BaseActivity implements ILoginView {
     TextInputLayout layoutPassword;
     TextInputEditText editPassword;
 
-    private ILoginPresenter loginPresenter;
+    private ILoginOnPwdPresenter loginPresenter;
 
     @Override
     protected int getContentLayoutRes() {
-        return R.layout.login_activity_login;
+        return R.layout.login_activity_login_password;
     }
 
     @Override
     protected void registerPresenter() {
-        loginPresenter = new ILoginPresenterImpl(this);
+        loginPresenter = new ILoginOnPwdPresenterImpl(this);
     }
 
     @Override
@@ -100,17 +99,16 @@ public class LoginActivity extends BaseActivity implements ILoginView {
 
     @OnClick(R2.id.btnLogin)
     void actionLogin() {
-        loginPresenter.requestLogin(editAccount.getText().toString(),
-                editPassword.getText().toString());
+        loginPresenter.requestLogin(editAccount.getText(), editPassword.getText());
     }
 
     @Override
-    public void loginSuccess() {
-        finish();
+    public void onSuccess(UserInfo userInfo) {
+        loginSuccess(userInfo);
     }
 
     @Override
-    public void loginFail() {
-        Toast.makeText(this, "登录失败", Toast.LENGTH_SHORT).show();
+    public void onFail(String errCode, String errMsg) {
+        loginFail(errCode, errMsg);
     }
 }

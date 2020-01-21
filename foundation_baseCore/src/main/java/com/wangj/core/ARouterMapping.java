@@ -59,7 +59,8 @@ public class ARouterMapping {
      * 登录 Module
      */
     public static class LoginMapping {
-        public final static String Login = "/login/login";
+        public final static String LoginOnPassword = "/login/loginOnPassword";
+        public final static String LoginOnGesture = "/login/loginOnGesture";
     }
 
     /**

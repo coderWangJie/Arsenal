@@ -4,8 +4,7 @@ import android.content.Intent;
 import android.widget.TextView;
 
 import com.wangj.core.android.BaseActivity;
-import com.wangj.core.util.AndroidUtil;
-import com.wangj.core.util.LogUtil;
+import com.wangj.core.util.AppVersionUtil;
 import com.wangj.launcher.presenter.ISplashPresenter;
 import com.wangj.launcher.presenter.ISplashPresenterImpl;
 import com.wangj.launcher.view.ISplashView;
@@ -18,8 +17,8 @@ public class SplashActivity extends BaseActivity implements ISplashView {
 
     @BindView(R2.id.tvSkip)
     TextView tvSkip;
-    @BindView(R2.id.tvBuildTime)
-    TextView tvBuildTime;
+    @BindView(R2.id.tvVersionInfo)
+    TextView tvVersion;
 
     @Override
     protected int getContentLayoutRes() {
@@ -44,10 +43,9 @@ public class SplashActivity extends BaseActivity implements ISplashView {
 
     @Override
     public void startSplashView() {
-        tvSkip.setText(BuildConfig.DEBUG ? "debug" : "release");
-
-        tvBuildTime.setText("打包时间\n".concat(BuildConfig.ReleaseTime)
-                .concat("  v").concat(AndroidUtil.getVersionName(this)));
+        tvVersion.setText((BuildConfig.DEBUG ? "Debug" : "Release")
+                .concat("\n").concat(BuildConfig.ReleaseTime)
+                .concat("\nv").concat(AppVersionUtil.getVersionName(this)));
     }
 
     @Override

@@ -17,7 +17,7 @@ public class IDemoHomePresenterImpl implements IDemoHomePresenter {
     public void createDemoData() {
         ArrayList<DemoVO> list = new ArrayList<>();
 
-        list.add(new DemoVO(ARouterMapping.LoginMapping.Login, "调起Login"));
+        list.add(new DemoVO(ARouterMapping.LoginMapping.LoginOnPassword, "调起Login"));
         list.add(new DemoVO(ARouterMapping.DemoMapping.Buttons, "Button && MaterialButton && AppCompatButton"));
         list.add(new DemoVO(ARouterMapping.DemoMapping.Dialog, "对话框"));
         list.add(new DemoVO(ARouterMapping.DemoMapping.CoordinatorAppBarLayout, "CoordinatorLayout + AppBarLayout模拟支付宝菜单页"));

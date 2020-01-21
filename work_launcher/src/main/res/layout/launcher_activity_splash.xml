@@ -23,7 +23,7 @@
         android:textColor="@color/ui_white_a80" />
 
     <TextView
-        android:id="@+id/tvBuildTime"
+        android:id="@+id/tvVersionInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

@@ -3,7 +3,7 @@
     package="com.wangj.login">
 
     <application>
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".LoginOnPasswordActivity"></activity>
     </application>
 
 </manifest>
