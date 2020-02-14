@@ -8,22 +8,27 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class CustToastUtil {
+public class ToastEmotionalUtil {
 
-    private static int TYPE_POSITIVE = 0;
-    private static int TYPE_NEUTRAL = 1;
-    private static int TYPE_NEGATIVE = 2;
+    /**
+     *
+     */
+    private static class Emotional {
+        private static int TYPE_POSITIVE = 0;
+        private static int TYPE_NEUTRAL = 1;
+        private static int TYPE_NEGATIVE = 2;
+    }
 
     public static void toastPositive(Context context, String msg) {
-        toast(context, TYPE_POSITIVE, msg);
+        toast(context, Emotional.TYPE_POSITIVE, msg);
     }
 
     public static void toastNeutral(Context context, String msg) {
-        toast(context, TYPE_NEUTRAL, msg);
+        toast(context, Emotional.TYPE_NEUTRAL, msg);
     }
 
     public static void toastNegative(Context context, String msg) {
-        toast(context, TYPE_NEGATIVE, msg);
+        toast(context, Emotional.TYPE_NEGATIVE, msg);
     }
 
     private static void toast(Context context, int type, String msg) {
@@ -31,11 +36,11 @@ public class CustToastUtil {
         ((TextView) view.findViewById(R.id.tvMessage)).setText(msg);
 
         ImageView imgIcon = view.findViewById(R.id.imgIcon);
-        if (type == TYPE_POSITIVE) {
+        if (type == Emotional.TYPE_POSITIVE) {
             imgIcon.setImageResource(R.drawable.ui_frame_face_positive);
-        } else if (type == TYPE_NEUTRAL) {
+        } else if (type == Emotional.TYPE_NEUTRAL) {
             imgIcon.setImageResource(R.drawable.ui_frame_face_neutral);
-        } else if (type == TYPE_NEGATIVE) {
+        } else if (type == Emotional.TYPE_NEGATIVE) {
             imgIcon.setImageResource(R.drawable.ui_frame_face_negative);
         }
 

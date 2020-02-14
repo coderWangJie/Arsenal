@@ -47,11 +47,11 @@ public class DemoActivity extends BaseActivity implements IDemoHomeView {
         recyclerView.setAdapter(adapter);
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
-        iDemoHomePresenter.createDemoDatas();
+        iDemoHomePresenter.createDemoData();
     }
 
     @Override
-    public void updadeDemoList(List<DemoVO> data) {
+    public void updateDemoList(List<DemoVO> data) {
         list.clear();
         list.addAll(data);
         adapter.notifyDataSetChanged();

@@ -14,10 +14,10 @@ public class IDemoHomePresenterImpl implements IDemoHomePresenter {
     }
 
     @Override
-    public void createDemoDatas() {
+    public void createDemoData() {
         ArrayList<DemoVO> list = new ArrayList<>();
 
-        list.add(new DemoVO(ARouterMapping.LoginMapping.Login, "调起Login"));
+        list.add(new DemoVO(ARouterMapping.LoginMapping.LoginOnPassword, "调起Login"));
         list.add(new DemoVO(ARouterMapping.DemoMapping.Buttons, "Button && MaterialButton && AppCompatButton"));
         list.add(new DemoVO(ARouterMapping.DemoMapping.Dialog, "对话框"));
         list.add(new DemoVO(ARouterMapping.DemoMapping.CoordinatorAppBarLayout, "CoordinatorLayout + AppBarLayout模拟支付宝菜单页"));
@@ -26,6 +26,6 @@ public class IDemoHomePresenterImpl implements IDemoHomePresenter {
         list.add(new DemoVO(ARouterMapping.DemoMapping.TabLayout, "TabLayout的使用"));
         list.add(new DemoVO(ARouterMapping.DemoMapping.Temp, "转场动画"));
 
-        iDemoHomeView.updadeDemoList(list);
+        iDemoHomeView.updateDemoList(list);
     }
 }

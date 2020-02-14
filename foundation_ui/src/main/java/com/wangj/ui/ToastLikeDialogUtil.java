@@ -8,10 +8,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class CustToastDialogUtil {
+public class ToastLikeDialogUtil {
 
-    public interface OnToastDismissListener {
-        /** 由于{@link CustToastDialogUtil}使用Toast实现，所以禁止在onShow()中使用Toast */
+    public interface OnToastLifecycleListener {
+        /** 由于{@link ToastLikeDialogUtil}使用Toast实现，所以禁止在本回调中使用Toast */
         void onShow();
 
         void onDismiss();
@@ -24,7 +24,7 @@ public class CustToastDialogUtil {
         toast(context, TYPE_SUCCESS, msg, null);
     }
 
-    public static void toastSuccess(Context context, String msg, OnToastDismissListener listener) {
+    public static void toastSuccess(Context context, String msg, OnToastLifecycleListener listener) {
         toast(context, TYPE_SUCCESS, msg, listener);
     }
 
@@ -32,11 +32,11 @@ public class CustToastDialogUtil {
         toast(context, TYPE_FAIL, msg, null);
     }
 
-    public static void toastFail(Context context, String msg, OnToastDismissListener listener) {
+    public static void toastFail(Context context, String msg, OnToastLifecycleListener listener) {
         toast(context, TYPE_FAIL, msg, listener);
     }
 
-    private static void toast(Context context, int type, String msg, final OnToastDismissListener dismissListener) {
+    private static void toast(Context context, int type, String msg, final OnToastLifecycleListener dismissListener) {
         View view = LayoutInflater.from(context).inflate(R.layout.ui_view_toast_dialog, null);
         if (dismissListener != null) {
             view.addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() {

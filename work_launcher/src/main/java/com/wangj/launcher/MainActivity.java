@@ -8,7 +8,6 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.wangj.core.ARouterMapping;
 import com.wangj.core.android.BaseActivity;
-import com.wangj.ui.ShareButtonView;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -20,9 +19,6 @@ public class MainActivity extends BaseActivity {
 
     @BindView(R2.id.textView)
     TextView tv;
-
-    @BindView(R2.id.shareButton)
-    ShareButtonView shareButton;
 
     @Override
     protected int getContentLayoutRes() {
@@ -99,17 +95,6 @@ public class MainActivity extends BaseActivity {
 //                    .withString(IntentConstant.WEB_URL, "")
 //                    .withString(IntentConstant.WEB_TITLE, "")
 //                    .navigation();
-        }
-    }
-
-    int temp;
-
-    @OnClick(R2.id.shareButton)
-    void actionShareButtonView() {
-        if (temp++ % 2 == 0) {
-            shareButton.startAnimation();
-        } else {
-            shareButton.reset();
         }
     }
 

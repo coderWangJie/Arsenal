@@ -6,5 +6,5 @@ public interface ISplashView {
 
     void refreshWaiting(int second);
 
-    void initFinsh();
+    void countdownFinish();
 }

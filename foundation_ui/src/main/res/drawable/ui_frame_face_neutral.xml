@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- 中立态度的动画（一直是无表情脸） -->
 <animation-list xmlns:android="http://schemas.android.com/apk/res/android"
     android:oneshot="true">
     <item
         android:drawable="@drawable/ui_face_default"
-        android:duration="600" />
-    <item
-        android:drawable="@drawable/ui_face_default"
-        android:duration="300" />
+        android:duration="900" />
 </animation-list>

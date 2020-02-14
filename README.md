@@ -36,7 +36,13 @@
 - ButterKnife编译时注解
 
     ButterKnife参看[ButterKnife踩坑记](./Notes/ButterKnife踩坑记.md)。
+    
 - Alibaba-ARouter路由方案
 
     接入笔记和遇到的问题排查解决记录烦请移步[ARouter踩坑记](./Notes/ARouter踩坑记.md)。
+    
 - MVP模式
+
+    简单使用，目前看起来简单实用，将M、V层分得很干净；
+
+- 

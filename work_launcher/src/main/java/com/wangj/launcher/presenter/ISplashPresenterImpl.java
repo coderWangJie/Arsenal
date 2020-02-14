@@ -9,7 +9,7 @@ public class ISplashPresenterImpl implements ISplashPresenter {
 
     private ISplashView splashView;
 
-    private int delaySecond = 2;
+    private int delaySecond = 5;
 
     public ISplashPresenterImpl(ISplashView splashView) {
         this.splashView = splashView;
@@ -29,11 +29,11 @@ public class ISplashPresenterImpl implements ISplashPresenter {
             super.handleMessage(msg);
 
             if (msg.what == 0) {
-                if (delaySecond > 0) {
-                    splashView.refreshWaiting(--delaySecond);
+                if (delaySecond >= 0) {
+                    splashView.refreshWaiting(delaySecond--);
                     sendEmptyMessageDelayed(0, 1000);
                 } else {
-                    splashView.initFinsh();
+                    splashView.countdownFinish();
                 }
             }
         }

@@ -16,11 +16,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:padding="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/ui_shape_bg_jump"
+        android:padding="6dp"
         android:textColor="@color/ui_white_a80" />
 
     <TextView
-        android:id="@+id/tvBuildTime"
+        android:id="@+id/tvVersionInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

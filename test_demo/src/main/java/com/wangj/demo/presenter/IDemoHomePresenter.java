@@ -1,6 +1,6 @@
 package com.wangj.demo.presenter;
 
 public interface IDemoHomePresenter {
-    void createDemoDatas();
+    void createDemoData();
 
 }
