@@ -5,11 +5,13 @@ import android.widget.TextView;
 
 import com.wangj.core.android.BaseActivity;
 import com.wangj.core.util.AppVersionUtil;
+import com.wangj.core.util.LogUtil;
 import com.wangj.launcher.presenter.ISplashPresenter;
 import com.wangj.launcher.presenter.ISplashPresenterImpl;
 import com.wangj.launcher.view.ISplashView;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 public class SplashActivity extends BaseActivity implements ISplashView {
 
@@ -38,7 +40,18 @@ public class SplashActivity extends BaseActivity implements ISplashView {
     @Override
     protected void onResume() {
         super.onResume();
-        splashPresenter.checkInfo();
+        splashPresenter.start();
+
+        /*
+        在LauncherActivity中获取以下代码启动的参数：
+        Intent launchIntentForPackage = getPackageManager().getLaunchIntentForPackage(Constans.BANK_PACKAGE_NAME);
+                    if (launchIntentForPackage != null) {
+                        launchIntentForPackage.putExtra("type", "110");
+                        launchIntentForPackage.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(launchIntentForPackage);
+
+         */
+        LogUtil.d(TAG, "启动参数：" + getIntent().getStringExtra("type"));
     }
 
     @Override
@@ -60,8 +73,22 @@ public class SplashActivity extends BaseActivity implements ISplashView {
         finish();
     }
 
+    @OnClick(R2.id.tvSkip)
+    protected void jumpToStart() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
     @Override
     public void onBackPressed() {
         // Splash页不允许手动退出
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        splashPresenter.stop();
     }
 }

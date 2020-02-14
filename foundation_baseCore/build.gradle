@@ -24,7 +24,7 @@ dependencies {
     api 'com.android.support:appcompat-v7:28.0.0'
 
     // Alibaba JSON工具
-    api 'com.alibaba:fastjson:1.2.58'
+    api Alibaba_FastJson
 
     // EventBus依赖
     api 'org.greenrobot:eventbus:3.1.1'
