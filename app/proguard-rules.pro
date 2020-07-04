@@ -21,12 +21,12 @@
 #-renamesourcefileattribute SourceFile
 
 # 实体类防混淆
--keepclassmembers class * com.wangj.core.entity.BaseVO { *;}
+-keepclassmembers class * extends com.wangj.core.entity.BaseVO { *;}
 
 
 # ------Alibaba ARouter防混淆------------------------------------------------------
--keep public class com.alibaba.android.arouter.routes.**{*;}
--keep public class com.alibaba.android.arouter.facade.**{*;}
+-keep public class com.alibaba.android.arouter.routes.*{*;}
+-keep public class com.alibaba.android.arouter.facade.*{*;}
 -keep class * implements com.alibaba.android.arouter.facade.template.ISyringe{*;}
 # If you use the byType method to obtain Service, add the following rules to protect the interface:
 # 如果使用了 byType 的方式获取 Service，需添加下面规则，保护接口（此为上一行英文翻译）
@@ -37,7 +37,7 @@
 
 
 # -------ButterKnife防混淆----------------------------------------------------------
--keep class butterknife.** { *; }
+-keep class butterknife.* { *; }
 -dontwarn butterknife.internal.**
 -keep class **$$ViewBinder { *; }
 -keepclasseswithmembernames class * {
