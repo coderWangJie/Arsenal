@@ -1,4 +1,4 @@
-package com.wangj.ui;
+package com.wangj.ui.util;
 
 import android.content.Context;
 import android.graphics.drawable.AnimationDrawable;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.wangj.ui.R;
 
 public class ToastEmotionalUtil {
 

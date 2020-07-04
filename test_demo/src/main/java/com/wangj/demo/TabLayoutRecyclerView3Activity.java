@@ -16,7 +16,7 @@ import com.wangj.core.android.BaseActivity;
 import com.wangj.core.entity.BaseVO;
 import com.wangj.core.util.LogUtil;
 import com.wangj.demo.adapter.TablayoutRecyclerViewAdapter;
-import com.wangj.ui.ToastEmotionalUtil;
+import com.wangj.ui.util.ToastEmotionalUtil;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

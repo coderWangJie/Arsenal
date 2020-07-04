@@ -16,8 +16,8 @@ public class AppVersionUtil {
 
     /**
      * 获取APP版本号
-     * @param context
-     * @return
+     * @param context 上下文
+     * @return 如 1.2.3
      */
     public static String getVersionName(Context context) {
         String var1 = "";

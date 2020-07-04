@@ -1,4 +1,4 @@
-package com.wangj.ui;
+package com.wangj.ui.util;
 
 import android.content.Context;
 import android.widget.Toast;

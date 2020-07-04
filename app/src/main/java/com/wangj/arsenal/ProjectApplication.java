@@ -1,9 +1,11 @@
 package com.wangj.arsenal;
 
 import android.content.res.Configuration;
+import android.widget.Toast;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.wangj.core.android.BaseApplication;
+import com.wangj.core.constant.BuildConstant;
 import com.wangj.core.util.LogUtil;
 
 public class ProjectApplication extends BaseApplication {
@@ -13,8 +15,10 @@ public class ProjectApplication extends BaseApplication {
     public void onCreate() {
         super.onCreate();
 
+        Toast.makeText(this, "BuildConstant.isDebug=" + BuildConstant.isDebug, Toast.LENGTH_LONG).show();
+
         // ARouter初始化
-        if (BuildConfig.DEBUG) {
+        if (BuildConstant.isDebug) {
             ARouter.openDebug();
             ARouter.openLog();
         }

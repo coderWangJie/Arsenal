@@ -1,4 +1,4 @@
-package com.wangj.ui;
+package com.wangj.ui.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -11,7 +11,8 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.wangj.core.util.ViewUtil;
+import com.wangj.ui.R;
+import com.wangj.ui.util.ViewUtil;
 
 
 /**

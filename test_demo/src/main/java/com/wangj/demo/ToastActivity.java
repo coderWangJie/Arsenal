@@ -6,9 +6,9 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.wangj.core.ARouterMapping;
 import com.wangj.core.android.BaseActivity;
 import com.wangj.core.util.LogUtil;
-import com.wangj.ui.ToastLikeDialogUtil;
-import com.wangj.ui.ToastEmotionalUtil;
-import com.wangj.ui.ToastOneUtil;
+import com.wangj.ui.util.ToastLikeDialogUtil;
+import com.wangj.ui.util.ToastEmotionalUtil;
+import com.wangj.ui.util.ToastOneUtil;
 
 import butterknife.OnClick;
 

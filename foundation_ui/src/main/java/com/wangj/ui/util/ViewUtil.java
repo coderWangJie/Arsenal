@@ -1,4 +1,4 @@
-package com.wangj.core.util;
+package com.wangj.ui.util;
 
 import android.content.Context;
 
