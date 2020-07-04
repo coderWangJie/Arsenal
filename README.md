@@ -5,7 +5,7 @@
 
 ## Branchs
 - master
-- stable(default) 
+- stable(Default Branch) 
 
 ## Modules说明
 - foundation_baseCore

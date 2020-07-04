@@ -9,21 +9,50 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
+        flavorDimensions "versionCode"
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file('../wangj.keystore')
+            storePassword 'wang,jie.'
+            keyAlias 'key_private'
+            keyPassword 'wang,jie.'
+        }
+
+        release {
+            storeFile file('../wangj.keystore')
+            storePassword 'wang,jie.'
+            keyAlias 'key_private'
+            keyPassword 'wang,jie.'
+        }
     }
 
     buildTypes {
         debug {
             minifyEnabled false
+            debuggable true
+            zipAlignEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+        }
 
+        release {
+            minifyEnabled true
+            debuggable false
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    productFlavors {
+        dev {
             // 该语句将在"build\generated\source\buildConfig\debug\包名\BuildConfig.java"中添加指定名称的常量
             buildConfigField("int", "showLogLevel", "${showLogLevel}")
         }
 
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-
+        pro {
             // 该语句将在"build\generated\source\buildConfig\debug\包名\BuildConfig.java"中添加指定名称的常量
             buildConfigField("int", "showLogLevel", "${showLogLevel}")
         }
